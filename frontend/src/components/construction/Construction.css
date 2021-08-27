@@ -1,0 +1,28 @@
+.table-subtitle-container {
+  padding-bottom: 0px;
+  padding-top: 10px;
+}
+
+.table-subtitle {
+  float: left;
+}
+
+.clear-cell {
+  background-color: transparent;
+}
+
+.clear-cell:hover {
+  background-color: transparent;
+}
+
+.error-cell {
+  border: 2px solid #e53935;
+}
+
+.warning-cell {
+  border: 2px solid #faad14;
+}
+
+.bolded-cell {
+  border: 2px solid #002e5d;
+}
