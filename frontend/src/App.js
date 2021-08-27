@@ -13,7 +13,6 @@ export const App = () => {
 
   return (
     <>
-      testd
       <Header
         token={token}
         setToken={setToken}
