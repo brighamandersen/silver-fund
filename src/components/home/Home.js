@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import sfLogo from "../../media/sf-logo-white.png";
 import MsgBanner from "../shared/MsgBanner";
-import HomeChangePassword from "./HomeChangePassword";
+import PasswordChanger from "./PasswordChanger";
 import { Content, LeftCol } from "../shared/SharedStyles";
 import { useAuth } from "../../utils/AuthContext";
 
@@ -31,8 +31,7 @@ export const Home = (props) => {
           >
             Contact Us
           </a>
-          <HomeChangePassword
-            username={props.username}
+          <PasswordChanger
             setSuccessMsg={(value) => {
               setIsSuccessMsg(true);
               setMsg(value);

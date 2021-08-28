@@ -22,15 +22,6 @@ export function AuthProvider({ children }) {
     setUsername(null);
   }
 
-  // useEffect(() => {
-  //   const unsubscribe = auth.onAuthStateChanged((user) => {
-  //     setCurrentUser(user);
-  //     setLoading(false);
-  //   });
-
-  //   return unsubscribe;
-  // }, []);
-
   const value = {
     loggedIn,
     username,

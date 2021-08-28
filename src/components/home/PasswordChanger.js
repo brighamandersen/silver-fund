@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import passwordIcon from "../../media/lock.png";
 import { COLORS } from "../../utils/constants";
 
-export const HomeChangePassword = (props) => {
+export const PasswordChanger = (props) => {
   const [oldPwd, setOldPwd] = useState("");
   const [newPwd, setNewPwd] = useState("");
   const [newPwdConfirm, setNewPwdConfirm] = useState("");
@@ -135,4 +135,4 @@ export const HomeChangePassword = (props) => {
   );
 };
 
-export default HomeChangePassword;
+export default PasswordChanger;
