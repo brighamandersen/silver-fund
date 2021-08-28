@@ -1,14 +1,10 @@
 import React from "react";
+// import PropTypes from "prop-types";
 import byuLogoText from "../../media/byu-logo-text.png";
+import { useAuth } from "../../utils/AuthContext";
 
-const Header = (props) => {
-  const logOut = () => {
-    props.setToken(null);
-    localStorage.removeItem("token");
-    props.setUsername("");
-    localStorage.setItem("username", "");
-    props.setPassword("");
-  };
+const Navbar = () => {
+  const { loggedIn, logOut } = useAuth();
 
   return (
     <div
@@ -30,7 +26,7 @@ const Header = (props) => {
           Silver Fund
         </h3>
         <nav className="nav float-right">
-          {props.token && (
+          {loggedIn && (
             <button
               type="button"
               className="btn white-btn signout-btn py-1"
@@ -45,4 +41,9 @@ const Header = (props) => {
   );
 };
 
-export default Header;
+// Navbar.propTypes = {
+//   loggedIn: PropTypes.bool.isRequired,
+//   logOut: PropTypes.func.isRequired,
+// };
+
+export default Navbar;

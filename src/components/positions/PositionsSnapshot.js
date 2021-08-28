@@ -27,29 +27,29 @@ const PositionsSnapshot = () => {
     setApiPositions([]);
     setShowGraphics(true);
 
-    axios
-      .get("api/positions/filter/date/", {
-        params: {
-          start: date,
-        },
-      })
-      .then((response) => {
-        console.log("Positions on " + date, response.data);
-        if (response.data.length === 0) {
-          setShowGraphics(false);
-          setErrorMsg(
-            "No positions exist on the date selected.  Try a different selection."
-          );
-        }
-        setApiPositions(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-        setShowGraphics(false);
-        setErrorMsg(
-          "Uh oh! Something went wrong on our end (failed to load positions data).  If this error persists, contact support."
-        );
-      });
+    // axios
+    //   .get("api/positions/filter/date/", {
+    //     params: {
+    //       start: date,
+    //     },
+    //   })
+    //   .then((response) => {
+    //     console.log("Positions on " + date, response.data);
+    //     if (response.data.length === 0) {
+    //       setShowGraphics(false);
+    //       setErrorMsg(
+    //         "No positions exist on the date selected.  Try a different selection."
+    //       );
+    //     }
+    //     setApiPositions(response.data);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //     setShowGraphics(false);
+    //     setErrorMsg(
+    //       "Uh oh! Something went wrong on our end (failed to load positions data).  If this error persists, contact support."
+    //     );
+    //   });
   }, [date, graphVT]); // Calls the API to fetch data at first, whenever date changes.
 
   return (

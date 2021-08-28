@@ -3,17 +3,20 @@ import sfLogo from "../../media/sf-logo-white.png";
 import MsgBanner from "../shared/MsgBanner";
 import HomeChangePassword from "./HomeChangePassword";
 import { Content, LeftCol } from "../shared/SharedStyles";
+import { useAuth } from "../../utils/AuthContext";
 
 export const Home = (props) => {
   const [isSuccessMsg, setIsSuccessMsg] = useState(false);
   const [msg, setMsg] = useState(null);
+
+  const { username } = useAuth();
 
   return (
     <>
       <MsgBanner success={isSuccessMsg} msg={msg} setMsg={setMsg} />
       <Content>
         <LeftCol>
-          <h3>{props.username}, Welcome to the Silver Fund Web App!</h3>
+          <h3>{username}, Welcome to the Silver Fund Web App!</h3>
           <a
             className="btn m-4"
             href="https://byu.sharepoint.com/sites/silverfund-wiki"

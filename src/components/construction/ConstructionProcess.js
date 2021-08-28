@@ -5,25 +5,25 @@ import axios from "axios";
 
 export const ConstructionProcess = (props) => {
   const runPortOpt = () => {
-    axios
-      .get("api/port-opt", {
-        params: {
-          paperTarget: props.paperTarget,
-          paperStats: props.paperStats,
-        },
-      })
-      .then((response) => {
-        console.log("Port Opt Response", response.data);
-        props.setPaperTarget(response.data[0].slice(1));
-        props.setPaperStats(response.data[1]);
-        props.setPaperBench(response.data[0].slice(0, 1)[0]);
-      })
-      .catch((error) => {
-        console.log(error);
-        // setErrorMsg(
-        //   "Uh oh! Something went wrong on our end (failed to load positions data).  If this error persists, contact support."
-        // );
-      });
+    // axios
+    //   .get("api/port-opt", {
+    //     params: {
+    //       paperTarget: props.paperTarget,
+    //       paperStats: props.paperStats,
+    //     },
+    //   })
+    //   .then((response) => {
+    //     console.log("Port Opt Response", response.data);
+    //     props.setPaperTarget(response.data[0].slice(1));
+    //     props.setPaperStats(response.data[1]);
+    //     props.setPaperBench(response.data[0].slice(0, 1)[0]);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //     // setErrorMsg(
+    //     //   "Uh oh! Something went wrong on our end (failed to load positions data).  If this error persists, contact support."
+    //     // );
+    //   });
   };
 
   const onProcessClick = () => {
@@ -122,56 +122,56 @@ export const ConstructionProcess = (props) => {
       el["is_latest"] = true;
     });
 
-    axios
-      .post("api/live-target-portfolio/commit/", newTarget)
-      .then((response) => {
-        console.log(props.paperTarget);
-        console.log(newTarget);
-        alert("Successfully committed target portfolio!");
-        console.log("New Live Target Portfolio", response.data);
-        props.setLiveTarget(response.data);
-      })
-      .catch((err) => {
-        console.log(err);
-        props.setErrorMsg(
-          "Uh oh! Something went wrong when committing your paper target portfolio to live."
-        );
-      });
+    // axios
+    //   .post("api/live-target-portfolio/commit/", newTarget)
+    //   .then((response) => {
+    //     console.log(props.paperTarget);
+    //     console.log(newTarget);
+    //     alert("Successfully committed target portfolio!");
+    //     console.log("New Live Target Portfolio", response.data);
+    //     props.setLiveTarget(response.data);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //     props.setErrorMsg(
+    //       "Uh oh! Something went wrong when committing your paper target portfolio to live."
+    //     );
+    //   });
 
     let newStats = props.paperStats;
     newStats.commit_maker = props.username;
-    axios
-      .post("api/portfolio-stats/commit/", newStats)
-      .then((response) => {
-        alert("Successfully committed porfolio stats!");
-        console.log("New Portfolio Stats", response.data);
-        props.setLiveStats(response.data);
-      })
-      .catch((err) => {
-        console.log(err);
-        props.setErrorMsg(
-          "Uh oh! Something went wrong when committing your paper portfolio stats to live."
-        );
-      });
+    // axios
+    //   .post("api/portfolio-stats/commit/", newStats)
+    //   .then((response) => {
+    //     alert("Successfully committed porfolio stats!");
+    //     console.log("New Portfolio Stats", response.data);
+    //     props.setLiveStats(response.data);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //     props.setErrorMsg(
+    //       "Uh oh! Something went wrong when committing your paper portfolio stats to live."
+    //     );
+    //   });
 
     let newBench = props.paperBench;
     newBench["b_weight"] = 0;
     newBench["is_latest"] = 1;
     newBench.commit_maker = props.username;
-    axios
-      .post("api/bench-stats/commit/", newBench)
-      .then((response) => {
-        console.log(newBench);
-        alert("Successfully committed target bench!");
-        console.log("New Live Target Bench", response.data);
-        props.setLiveTarget(response.data);
-      })
-      .catch((err) => {
-        console.log(err);
-        props.setErrorMsg(
-          "Uh oh! Something went wrong when committing your paper target portfolio to live."
-        );
-      });
+    // axios
+    //   .post("api/bench-stats/commit/", newBench)
+    //   .then((response) => {
+    //     console.log(newBench);
+    //     alert("Successfully committed target bench!");
+    //     console.log("New Live Target Bench", response.data);
+    //     props.setLiveTarget(response.data);
+    //   })
+    //   .catch((err) => {
+    //     console.log(err);
+    //     props.setErrorMsg(
+    //       "Uh oh! Something went wrong when committing your paper target portfolio to live."
+    //     );
+    //   });
   };
 
   return (

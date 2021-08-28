@@ -1,35 +1,32 @@
 import "./styles.css";
 import React, { useState } from "react";
-import { useLocalState } from "./utils/helpers";
-import Header from "./components/shared/Header";
+import useLocalStorage from "./utils/useLocalStorage";
+import Navbar from "./components/shared/Navbar";
 import Login from "./components/login/Login";
 import Footer from "./components/shared/Footer";
 import Panes from "./components/shared/Panes";
+import { AuthProvider, useAuth } from "./utils/AuthContext";
 
-export const App = () => {
-  const [token, setToken] = useLocalState("token");
-  const [username, setUsername] = useLocalState("username");
-  const [password, setPassword] = useState("");
+const App = () => {
+  // const [loggedIn, setLoggedIn] = useLocalStorage("loggedIn", false);
+  // const [username, setUsername] = useLocalStorage("username", null);
+
+  // const logIn = (uname) => {
+  //   setLoggedIn(true);
+  //   setUsername(uname);
+  // };
+
+  // const logOut = () => {
+  //   setLoggedIn(false);
+  //   setUsername(null);
+  // };
+
+  const { loggedIn } = useAuth();
 
   return (
     <>
-      <Header
-        token={token}
-        setToken={setToken}
-        setUsername={setUsername}
-        setPassword={setPassword}
-      />
-      {token ? (
-        <Panes username={username} />
-      ) : (
-        <Login
-          username={username}
-          setUsername={setUsername}
-          password={password}
-          setPassword={setPassword}
-          setToken={setToken}
-        />
-      )}
+      <Navbar />
+      {loggedIn ? <Panes /> : <Login />}
       <Footer />
     </>
   );

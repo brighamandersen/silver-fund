@@ -53,74 +53,74 @@ export const Construction = (props) => {
   };
 
   const getApiSecurities = () => {
-    axios
-      .get("api/securities/r3000/")
-      .then((response) => {
-        console.log("Securities", response.data);
-        setApiSecurities(response.data);
-        console.log("Updated", apiSecurities);
-      })
-      .catch((error) => {
-        console.log(error);
-        setErrorMsg(
-          "Uh oh! Something went wrong on our end (failed to load positions data).  If this error persists, contact support."
-        );
-      });
+    // axios
+    //   .get("api/securities/r3000/")
+    //   .then((response) => {
+    //     console.log("Securities", response.data);
+    //     setApiSecurities(response.data);
+    //     console.log("Updated", apiSecurities);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //     setErrorMsg(
+    //       "Uh oh! Something went wrong on our end (failed to load positions data).  If this error persists, contact support."
+    //     );
+    //   });
   };
 
   const getApiLiveTarget = () => {
-    axios
-      .get("api/live-target-portfolio/latest/")
-      .then((response) => {
-        console.log("Live Target Portfolio", response.data);
-        // change json key 'asset' to 'asset_id'
-        // response.data.forEach((el) => {
-        //   // el["asset_id"] = el["asset"];
-        //   // delete el["asset"];
-        //   response.data.forEach((el) => {
-        //     // el["asset"] = el["asset_id"];
-        //     // delete el["asset_id"];
-        //     el["current_holding"] = 1;
-        //   });
-        // });
-        setLiveTarget(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-        setErrorMsg(
-          "Uh oh! Something went wrong on our end (failed to load live target porfolio data).  If this error persists, contact support."
-        );
-      });
+    // axios
+    //   .get("api/live-target-portfolio/latest/")
+    //   .then((response) => {
+    //     console.log("Live Target Portfolio", response.data);
+    //     // change json key 'asset' to 'asset_id'
+    //     // response.data.forEach((el) => {
+    //     //   // el["asset_id"] = el["asset"];
+    //     //   // delete el["asset"];
+    //     //   response.data.forEach((el) => {
+    //     //     // el["asset"] = el["asset_id"];
+    //     //     // delete el["asset_id"];
+    //     //     el["current_holding"] = 1;
+    //     //   });
+    //     // });
+    //     setLiveTarget(response.data);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //     setErrorMsg(
+    //       "Uh oh! Something went wrong on our end (failed to load live target porfolio data).  If this error persists, contact support."
+    //     );
+    //   });
   };
 
   const getApiLiveStats = () => {
-    axios
-      .get("api/portfolio-stats/latest/")
-      .then((response) => {
-        console.log("Latest Portfolio Stats", response.data);
-        setLiveStats(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-        setErrorMsg(
-          "Uh oh! Something went wrong on our end (failed to load portfolio stats data).  If this error persists, contact support."
-        );
-      });
+    // axios
+    //   .get("api/portfolio-stats/latest/")
+    //   .then((response) => {
+    //     console.log("Latest Portfolio Stats", response.data);
+    //     setLiveStats(response.data);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //     setErrorMsg(
+    //       "Uh oh! Something went wrong on our end (failed to load portfolio stats data).  If this error persists, contact support."
+    //     );
+    //   });
   };
 
   const getApiLiveBench = () => {
-    axios
-      .get("api/bench-stats/latest/")
-      .then((response) => {
-        console.log("Latest Bench Stats", response.data);
-        setLiveBench(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-        setErrorMsg(
-          "Uh oh! Something went wrong on our end (failed to load portfolio stats data).  If this error persists, contact support."
-        );
-      });
+    // axios
+    //   .get("api/bench-stats/latest/")
+    //   .then((response) => {
+    //     console.log("Latest Bench Stats", response.data);
+    //     setLiveBench(response.data);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //     setErrorMsg(
+    //       "Uh oh! Something went wrong on our end (failed to load portfolio stats data).  If this error persists, contact support."
+    //     );
+    //   });
   };
 
   useEffect(() => {

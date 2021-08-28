@@ -1,10 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
-import axios from "axios";
-import { API_BACKEND_URL, API_AUTH_CREDENTIALS } from "./utils/constants";
+import { AuthProvider } from "./utils/AuthContext";
 
-axios.defaults.baseURL = API_BACKEND_URL;
-axios.defaults.auth = API_AUTH_CREDENTIALS;
+const AppWithAuth = (
+  <AuthProvider>
+    <App />
+  </AuthProvider>
+);
 
-ReactDOM.render(<App />, document.getElementById("root"));
+ReactDOM.render(AppWithAuth, document.getElementById("root"));

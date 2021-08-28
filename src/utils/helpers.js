@@ -1,16 +1,3 @@
-import { useState } from "react";
-
-export const useLocalState = (localItem = "") => {
-  const [loc, setLocState] = useState(localStorage.getItem(localItem));
-
-  const setLoc = (newItem) => {
-    localStorage.setItem(localItem, newItem);
-    setLocState(newItem);
-  };
-
-  return [loc, setLoc];
-};
-
 export const getPaperTarget = () => {
   let tempArrObj = JSON.parse(localStorage.getItem("paperTarget"));
   if (tempArrObj == null) {

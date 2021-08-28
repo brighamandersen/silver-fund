@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios";
 import passwordIcon from "../../media/lock.png";
 import { COLORS } from "../../utils/constants";
 
@@ -35,25 +34,25 @@ export const HomeChangePassword = (props) => {
       return;
     }
 
-    axios
-      .put("api/change-password/", {
-        user: props.username,
-        old_password: oldPwd,
-        new_password: newPwd,
-      })
-      .then((response) => {
-        console.log(response.data);
-        props.setSuccessMsg(
-          "Success!  Make sure to sign in with your new password in the future."
-        );
-        setCanChangePwd(false);
-      })
-      .catch((error) => {
-        console.log(error);
-        props.setErrorMsg(
-          "Uh oh! Failed to changed password.  Refresh and try again.  If this error persists, contact support."
-        );
-      });
+    // axios
+    //   .put("api/change-password/", {
+    //     user: props.username,
+    //     old_password: oldPwd,
+    //     new_password: newPwd,
+    //   })
+    //   .then((response) => {
+    //     console.log(response.data);
+    //     props.setSuccessMsg(
+    //       "Success!  Make sure to sign in with your new password in the future."
+    //     );
+    //     setCanChangePwd(false);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //     props.setErrorMsg(
+    //       "Uh oh! Failed to changed password.  Refresh and try again.  If this error persists, contact support."
+    //     );
+    //   });
 
     setOldPwd("");
     setNewPwd("");

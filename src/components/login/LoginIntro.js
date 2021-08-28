@@ -8,7 +8,7 @@ const H1 = styled.h1`
   color: ${COLORS.navy};
 `;
 
-export const LoginIntro = () => (
+const LoginIntro = () => (
   <div className="sf-intro m-4">
     <img src={sfLogo} alt="" className="trading-img w-50 py-3" />
     <H1>Silver Fund Web App</H1>

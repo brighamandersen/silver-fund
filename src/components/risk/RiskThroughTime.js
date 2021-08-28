@@ -52,33 +52,33 @@ export const RiskThroughTime = () => {
     setErrorMsg(null);
     setGraphData([]);
 
-    axios
-      .get("api/portfolio_performance/filter/feild/", {
-        params: {
-          start: start,
-          end: end,
-          graphVT: graphVT,
-          riskVT: riskVT,
-        },
-      })
-      .then((response) => {
-        let resData = response.data;
-        console.log("Risk Snapshot on ", resData);
-        if (resData === undefined) {
-          // setShowGraphics(false);
-          setErrorMsg("Invalid date selected.  Try a different selection.");
-        } else {
-          setGraphData(formatRiskTimeSeries(resData, graphVT, riskVT));
-          console.log("GRAPH DATA", graphData);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-        setGraphData(formatRiskTimeSeries([], 6, 7));
-        setErrorMsg(
-          "Uh oh! Something went wrong on our end (failed to load portfolio risk snapshot data).  If this error persists, contact support."
-        );
-      });
+    // axios
+    //   .get("api/portfolio_performance/filter/feild/", {
+    //     params: {
+    //       start: start,
+    //       end: end,
+    //       graphVT: graphVT,
+    //       riskVT: riskVT,
+    //     },
+    //   })
+    //   .then((response) => {
+    //     let resData = response.data;
+    //     console.log("Risk Snapshot on ", resData);
+    //     if (resData === undefined) {
+    //       // setShowGraphics(false);
+    //       setErrorMsg("Invalid date selected.  Try a different selection.");
+    //     } else {
+    //       setGraphData(formatRiskTimeSeries(resData, graphVT, riskVT));
+    //       console.log("GRAPH DATA", graphData);
+    //     }
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //     setGraphData(formatRiskTimeSeries([], 6, 7));
+    //     setErrorMsg(
+    //       "Uh oh! Something went wrong on our end (failed to load portfolio risk snapshot data).  If this error persists, contact support."
+    //     );
+    //   });
   }, [graphVT, riskVT, unitType, start, end]);
 
   return (

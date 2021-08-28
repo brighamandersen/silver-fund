@@ -34,31 +34,31 @@ export const PositionsHistory = () => {
       return;
     }
 
-    axios
-      .get("api/positions/filter/date/", {
-        params: {
-          start: start,
-          end: end,
-        },
-      })
-      .then((response) => {
-        console.log("Positions from " + start + " to " + end, response.data);
-        if (response.data.length === 0) {
-          setShowGraphics(false);
-          setErrorMsg(
-            "No positions exist on the date range selected.  Try a different selection."
-          );
-        }
-        setApiPositions(response.data);
-        setSelectedPositions(response.data);
-      })
-      .catch((error) => {
-        console.log(error);
-        setShowGraphics(false);
-        setErrorMsg(
-          "Uh oh! Something went wrong on our end (failed to load positions data).  If this error persists, contact support."
-        );
-      });
+    // axios
+    //   .get("api/positions/filter/date/", {
+    //     params: {
+    //       start: start,
+    //       end: end,
+    //     },
+    //   })
+    //   .then((response) => {
+    //     console.log("Positions from " + start + " to " + end, response.data);
+    //     if (response.data.length === 0) {
+    //       setShowGraphics(false);
+    //       setErrorMsg(
+    //         "No positions exist on the date range selected.  Try a different selection."
+    //       );
+    //     }
+    //     setApiPositions(response.data);
+    //     setSelectedPositions(response.data);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //     setShowGraphics(false);
+    //     setErrorMsg(
+    //       "Uh oh! Something went wrong on our end (failed to load positions data).  If this error persists, contact support."
+    //     );
+    //   });
   }, [start, end]); //  Calls the API to fetch data at first, whenever start or end date change.
 
   return (

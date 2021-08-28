@@ -27,35 +27,35 @@ export const RiskSnapshot = () => {
     setApiSnapshot({});
     setShowGraphics(true);
 
-    axios
-      .get("api/portfolio_performance/filter/date/", {
-        params: {
-          start: date,
-        },
-      })
-      .then((response) => {
-        let resData = response.data[0];
-        console.log("Risk Snapshot on " + date, resData);
-        if (resData === undefined) {
-          setShowGraphics(false);
-          setErrorMsg("Invalid date selected.  Try a different selection.");
-        } else {
-          //Round down values to 3 decimal places
-          for (let key in resData) {
-            if (typeof resData[key] === "number") {
-              resData[key] = Math.round(resData[key] * 1000) / 1000;
-            }
-          }
-        }
-        setApiSnapshot(resData);
-      })
-      .catch((error) => {
-        console.log(error);
-        setShowGraphics(false);
-        setErrorMsg(
-          "Uh oh! Something went wrong on our end (failed to load portfolio risk snapshot data).  If this error persists, contact support."
-        );
-      });
+    // axios
+    //   .get("api/portfolio_performance/filter/date/", {
+    //     params: {
+    //       start: date,
+    //     },
+    //   })
+    //   .then((response) => {
+    //     let resData = response.data[0];
+    //     console.log("Risk Snapshot on " + date, resData);
+    //     if (resData === undefined) {
+    //       setShowGraphics(false);
+    //       setErrorMsg("Invalid date selected.  Try a different selection.");
+    //     } else {
+    //       //Round down values to 3 decimal places
+    //       for (let key in resData) {
+    //         if (typeof resData[key] === "number") {
+    //           resData[key] = Math.round(resData[key] * 1000) / 1000;
+    //         }
+    //       }
+    //     }
+    //     setApiSnapshot(resData);
+    //   })
+    //   .catch((error) => {
+    //     console.log(error);
+    //     setShowGraphics(false);
+    //     setErrorMsg(
+    //       "Uh oh! Something went wrong on our end (failed to load portfolio risk snapshot data).  If this error persists, contact support."
+    //     );
+    //   });
   }, [date]); // Calls the API to fetch data at first, whenever date changes
 
   useEffect(() => {
