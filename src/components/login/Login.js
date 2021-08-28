@@ -71,6 +71,7 @@ export const Login = () => {
               className="form-control"
               placeholder="Enter username"
               ref={usernameRef}
+              autoFocus
             />
           </div>
           {/* Password */}

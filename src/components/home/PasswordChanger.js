@@ -1,58 +1,62 @@
 import React, { useState } from "react";
+import styled from "styled-components";
 import passwordIcon from "../../media/lock.png";
+import { useBanner } from "../../utils/BannerContext";
 import { COLORS } from "../../utils/constants";
 
-export const PasswordChanger = (props) => {
+const Wrapper = styled.div`
+  margin-top: 3rem;
+  max-width: 450px;
+`;
+
+const Notice = styled.p`
+  color: ${COLORS.black};
+`;
+
+const Icon = styled.img`
+  width: 50px;
+`;
+
+export const PasswordChanger = () => {
   const [oldPwd, setOldPwd] = useState("");
   const [newPwd, setNewPwd] = useState("");
   const [newPwdConfirm, setNewPwdConfirm] = useState("");
   const [canChangePwd, setCanChangePwd] = useState(true);
 
+  const { emitSuccessMsg, emitErrorMsg, clearMsg } = useBanner();
+
+  const clearNewPwds = () => {
+    setNewPwd("");
+    setNewPwdConfirm("");
+  };
+
   const changePassword = () => {
-    props.setErrorMsg(null);
+    clearMsg();
 
     if (newPwd === oldPwd) {
-      props.setErrorMsg("New password cannot be the same as old password.");
-      setNewPwd("");
-      setNewPwdConfirm("");
+      emitErrorMsg("New password cannot be the same as old password.");
+      clearNewPwds();
       return;
     }
 
     if (newPwd.length < 8) {
-      props.setErrorMsg("New password must be at least 8 characters long.");
-      setNewPwd("");
-      setNewPwdConfirm("");
+      emitErrorMsg("New password must be at least 8 characters long.");
+      clearNewPwds();
       return;
     }
 
     if (newPwd !== newPwdConfirm) {
-      props.setErrorMsg(
+      emitErrorMsg(
         "You did not re-enter the new password correctly.  Try again."
       );
-      setNewPwd("");
-      setNewPwdConfirm("");
+      clearNewPwds();
       return;
     }
 
-    // axios
-    //   .put("api/change-password/", {
-    //     user: props.username,
-    //     old_password: oldPwd,
-    //     new_password: newPwd,
-    //   })
-    //   .then((response) => {
-    //     console.log(response.data);
-    //     props.setSuccessMsg(
-    //       "Success!  Make sure to sign in with your new password in the future."
-    //     );
-    //     setCanChangePwd(false);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //     props.setErrorMsg(
-    //       "Uh oh! Failed to changed password.  Refresh and try again.  If this error persists, contact support."
-    //     );
-    //   });
+    emitSuccessMsg(
+      "Success!  Make sure to sign in with your new password in the future."
+    );
+    setCanChangePwd(false);
 
     setOldPwd("");
     setNewPwd("");
@@ -60,27 +64,17 @@ export const PasswordChanger = (props) => {
   };
 
   return (
-    <div
-      className="mt-5"
-      style={{
-        maxWidth: "450px",
-      }}
-    >
+    <Wrapper>
       <h5>Change Your Password</h5>
       {canChangePwd ? (
         <>
-          <p style={{ color: COLORS.black }}>
+          <Notice>
             Make sure to secure your account by changing your password from the
             default one you first received.
-          </p>
+          </Notice>
           <div className="input-group mb-3">
             <div className="input-group-prepend">
-              <img
-                className="input-group-text"
-                src={passwordIcon}
-                alt=""
-                style={{ width: "50px" }}
-              />
+              <Icon className="input-group-text" src={passwordIcon} alt="" />
             </div>
             <input
               type="password"
@@ -92,12 +86,7 @@ export const PasswordChanger = (props) => {
           </div>
           <div className="input-group mb-3">
             <div className="input-group-prepend">
-              <img
-                className="input-group-text"
-                src={passwordIcon}
-                alt=""
-                style={{ width: "50px" }}
-              />
+              <Icon className="input-group-text" src={passwordIcon} alt="" />
             </div>
             <input
               type="password"
@@ -117,21 +106,20 @@ export const PasswordChanger = (props) => {
             />
           </div>
           <button
-            className="btn"
-            style={{ width: "100%" }}
-            onClick={() => changePassword()}
-            disabled={(!oldPwd, !newPwd)}
+            className="btn w-100"
+            onClick={changePassword}
+            disabled={!oldPwd || !newPwd}
           >
             Change Password
           </button>
         </>
       ) : (
-        <p style={{ color: COLORS.black }}>
+        <Notice>
           You must sign out and sign back in with your new password before you
           can change it again.
-        </p>
+        </Notice>
       )}
-    </div>
+    </Wrapper>
   );
 };
 

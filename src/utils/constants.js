@@ -1,13 +1,21 @@
-import { formatAsAmount, formatAsCurrency } from "./helpers";
 import React from "react";
+import { formatAsAmount, formatAsCurrency } from "./helpers";
 
-/* URL for AWS Backend -- for all api calls */
-// export const API_BACKEND_URL = "https://47fund.byu.edu:4443/";
-export const API_BACKEND_URL = "http://localhost:8000/";
-
-export const API_AUTH_CREDENTIALS = {
-  username: "api_auth",
-  password: "Seeking4Alpha",
+/* Website Color Scheme */
+export const COLORS = {
+  navy: "#002e5d",
+  white: "#ffffff",
+  silver: "#cfcfcf",
+  black: "#000000",
+  fade1: "rgba(207, 207, 207, 0.2)",
+  fade2: "rgba(207, 207, 207, 0.7)",
+  slate: "slategray",
+  darkSlate: "darkslategray",
+  clear: "transparent",
+  lightHover: "rgba(0,0,0,0.05)",
+  blackHover: "#363636",
+  errorRed: "#e53935",
+  successGreen: "#0fb56d",
 };
 
 export const POSITIONS_GVT_OPTIONS = [
@@ -158,20 +166,3 @@ export const CUSTOM_SELECT_THEME = (theme) => ({
     primary: COLORS.navy,
   },
 });
-
-/* Website Color Scheme */
-export const COLORS = {
-  navy: "#002e5d",
-  white: "#ffffff",
-  silver: "#cfcfcf",
-  black: "#000000",
-  fade1: "rgba(207, 207, 207, 0.2)",
-  fade2: "rgba(207, 207, 207, 0.7)",
-  slate: "slategray",
-  darkSlate: "darkslategray",
-  clear: "transparent",
-  lightHover: "rgba(0,0,0,0.05)",
-  blackHover: "#363636",
-  errorRed: "#e53935",
-  successGreen: "#0fb56d",
-};

@@ -2,9 +2,11 @@ import React from "react";
 // import PropTypes from "prop-types";
 import byuLogoText from "../../media/byu-logo-text.png";
 import { useAuth } from "../../utils/AuthContext";
+import { useBanner } from "../../utils/BannerContext";
 
 const Navbar = () => {
   const { loggedIn, logOut } = useAuth();
+  const { clearMsg } = useBanner();
 
   return (
     <div
@@ -30,7 +32,10 @@ const Navbar = () => {
             <button
               type="button"
               className="btn white-btn signout-btn py-1"
-              onClick={logOut}
+              onClick={() => {
+                clearMsg();
+                logOut();
+              }}
             >
               Log Out
             </button>
