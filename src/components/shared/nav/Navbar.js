@@ -1,6 +1,12 @@
 import React from "react";
+import styled from "styled-components";
 import { useAuth } from "../../../utils/AuthContext";
-import { Bar, Tab, activeStyle } from "./NavComponents";
+import { NavTab } from "./NavTab";
+
+export const Bar = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+`;
 
 const Navbar = () => {
   const { loggedIn } = useAuth();
@@ -9,21 +15,13 @@ const Navbar = () => {
     <>
       {loggedIn && (
         <Bar>
-          <Tab exact to="/" activeStyle={activeStyle}>
+          <NavTab exact to="/">
             Home
-          </Tab>
-          <Tab to="/positions" activeStyle={activeStyle}>
-            Positions
-          </Tab>
-          <Tab to="/trades" activeStyle={activeStyle}>
-            Trade History
-          </Tab>
-          <Tab to="/construction" activeStyle={activeStyle}>
-            Portfolio Construction
-          </Tab>
-          <Tab to="/risk" activeStyle={activeStyle}>
-            Risk Analytics
-          </Tab>
+          </NavTab>
+          <NavTab to="/positions">Positions</NavTab>
+          <NavTab to="/trades">Trade History</NavTab>
+          <NavTab to="/construction">Portfolio Construction</NavTab>
+          <NavTab to="/risk">Risk Analytics</NavTab>
         </Bar>
       )}
     </>

@@ -4,24 +4,14 @@ import { NavLink } from "react-router-dom";
 
 import { COLORS, CORNER_ROUNDING } from "../../../utils/constants";
 
-export const activeStyle = {
+const activeStyle = {
   color: COLORS.navy,
   backgroundColor: COLORS.white,
   borderTopLeftRadius: CORNER_ROUNDING,
   borderTopRightRadius: CORNER_ROUNDING,
 };
 
-export const Bar = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-`;
-
-export const SubpaneBar = styled(Bar)`
-  background-color: ${COLORS.fade1};
-  border-top: 2px solid ${COLORS.navy};
-`;
-
-const PaneTab = styled(NavLink)`
+const Tab = styled(NavLink)`
   font-size: large;
   text-decoration: none;
   color: ${COLORS.fade2};
@@ -39,10 +29,10 @@ const PaneTab = styled(NavLink)`
   }
 `;
 
-export const Tab = (props) => {
+export const NavTab = ({ exact, to, children }) => {
   return (
-    <PaneTab exact={props.exact} to={props.to} activeStyle={props.activeStyle}>
-      {props.children}
-    </PaneTab>
+    <Tab exact={exact} to={to} activeStyle={activeStyle}>
+      {children}
+    </Tab>
   );
 };

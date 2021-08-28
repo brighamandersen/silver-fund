@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { COLORS } from "../../../utils/constants";
-
-import { Bar, Tab, activeStyle } from "./NavComponents";
+import { Bar } from "./Navbar";
+import { NavTab } from "./NavTab";
 
 const SubBar = styled(Bar)`
   background-color: ${COLORS.fade1};
@@ -11,25 +11,15 @@ const SubBar = styled(Bar)`
 
 export const PositionsSubNavbar = () => (
   <SubBar>
-    <Tab to="/positions/snapshot" activeStyle={activeStyle}>
-      Snapshot (Bar Chart View)
-    </Tab>
-    <Tab to="/positions/history" activeStyle={activeStyle}>
-      History by Stock (Time Series View)
-    </Tab>
+    <NavTab to="/positions/snapshot">Snapshot (Bar Chart View)</NavTab>
+    <NavTab to="/positions/history">History by Stock (Time Series View)</NavTab>
   </SubBar>
 );
 
 export const RiskSubNavbar = () => (
   <SubBar>
-    <Tab to="/risk/snapshot" activeStyle={activeStyle}>
-      Portfolio Snapshot
-    </Tab>
-    <Tab to="/risk/throughtime" activeStyle={activeStyle}>
-      Portfolio Risk Through Time
-    </Tab>
-    <Tab to="/risk/whatif" activeStyle={activeStyle}>
-      What-If Analysis
-    </Tab>
+    <NavTab to="/risk/snapshot">Portfolio Snapshot</NavTab>
+    <NavTab to="/risk/throughtime">Portfolio Risk Through Time</NavTab>
+    <NavTab to="/risk/whatif">What-If Analysis</NavTab>
   </SubBar>
 );
