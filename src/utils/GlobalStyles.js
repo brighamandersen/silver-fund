@@ -1,144 +1,119 @@
 import { createGlobalStyle } from "styled-components";
-import { COLORS } from "./constants";
+import { COLORS, CORNER_ROUNDING } from "./constants";
 
 const GlobalStyles = createGlobalStyle`
- html,
-body {
-  background-color: ${COLORS.navy};
-  color: ${COLORS.white};
-  font-family: Roboto, Helvetica, Arial;
-}
+  html, body {
+    background-color: ${COLORS.navy};
+    color: ${COLORS.white};
+    font-family: Roboto, Helvetica, Arial;
+  }
 
-hr {
-  background-color: ${COLORS.navy};
-}
+  hr {
+    background-color: ${COLORS.navy};
+  }
 
-p {
-  font-family: sans-serif;
-}
+  p {
+    font-family: sans-serif;
+  }
 
-a {
-  color: slategray;
-}
+  a {
+    color: slategray;
+  }
 
-a :hover {
-  color: darkslategray;
-}
+  a :hover {
+    color: darkslategray;
+  }
 
-.btn {
-  background-color: ${COLORS.navy};
-  color: ${COLORS.white};
-  font-size: 20px;
-  letter-spacing: 0.4px;
-  font-weight: 400;
-  border-radius: 8px;
-}
-.btn:hover {
-  background-color: ${COLORS.black};
-  color: ${COLORS.white};
-}
+  .btn {
+    background-color: ${COLORS.navy};
+    color: ${COLORS.white};
+    font-size: 20px;
+    letter-spacing: 0.4px;
+    font-weight: 400;
+    border-radius: 8px;
+  }
+  .btn:hover {
+    background-color: ${COLORS.black};
+    color: ${COLORS.white};
+  }
 
-.black-btn {
-  background-color: ${COLORS.black};
-}
-.black-btn:hover {
-  background-color: ${COLORS.navy};
-}
+  .black-btn {
+    background-color: ${COLORS.black};
+  }
+  .black-btn:hover {
+    background-color: ${COLORS.navy};
+  }
 
-.white-btn {
-  background-color: ${COLORS.white};
-  color: ${COLORS.black};
-}
-.white-btn:hover {
-  background-color: #ebebeb;
-  color: ${COLORS.black};
-}
+  .white-btn {
+    background-color: ${COLORS.white};
+    color: ${COLORS.black};
+  }
+  .white-btn:hover {
+    background-color: #ebebeb;
+    color: ${COLORS.black};
+  }
 
-.signout-btn {
-  font-weight: 500;
-}
+  .signout-btn {
+    font-weight: 500;
+  }
 
-.sub-pane {
-  background-color: rgba(207, 207, 207, 0.3);
-}
+  table {
+    border-collapse: collapse;
+    overflow: hidden;
+    border: 5px solid ${COLORS.silver};
+    border-radius: ${CORNER_ROUNDING};
+    width: 100%;
+  }
 
-.pane a,
-.sub-pane a {
-  color: rgba(255, 255, 255, 0.7);
-  font-weight: 400;
-  font-size: large;
-  letter-spacing: 0.4px;
-}
+  .table-with-select {
+    overflow: visible;
+  }
 
-.sub-pane a {
-  font-size: medium;
-  letter-spacing: 0.2px;
-}
+  th,
+  td {
+    border: 4px solid ${COLORS.silver};
+    padding: 5px;
+    text-align: right;
+    padding-left: 1em;
+    padding-right: 1em;
+  }
 
-.pane a:hover,
-.sub-pane a:hover {
-  background-color: rgba(207, 207, 207, 0.2);
-  color: rgba(255, 255, 255, 0.9);
-}
+  th {
+    background-color: ${COLORS.navy};
+    color: ${COLORS.white};
+  }
 
-table {
-  border-collapse: collapse;
-  overflow: hidden;
-  border: 5px solid #cfcfcf;
-  border-radius: 15px;
-  width: 100%;
-}
+  td {
+    background-color: ${COLORS.white};
+  }
 
-.table-with-select {
-  overflow: visible;
-}
+  .sortable-table-col:hover {
+    background-color: #3f5f80;
+  }
 
-th,
-td {
-  border: 4px solid #cfcfcf;
-  padding: 5px;
-  text-align: right;
-  padding-left: 1em;
-  padding-right: 1em;
-}
+  .delete-table-row-btn:hover {
+    background-color: #970000;
+  }
 
-th {
-  background-color: ${COLORS.navy};
-  color: ${COLORS.white};
-}
+  .top-right-cell {
+    border-top-right-radius: ${CORNER_ROUNDING};
+  }
 
-td {
-  background-color: ${COLORS.white};
-}
+  .top-left-cell {
+    border-top-left-radius: ${CORNER_ROUNDING};
+  }
 
-.sortable-table-col:hover {
-  background-color: #3f5f80;
-}
+  .btm-left-cell {
+    border-bottom-left-radius: ${CORNER_ROUNDING};
+  }
 
-.delete-table-row-btn:hover {
-  background-color: #970000;
-}
+  .btm-right-cell {
+    border-bottom-right-radius: ${CORNER_ROUNDING};
+  }
 
-.top-right-cell {
-  border-top-right-radius: 18px;
-}
-
-.top-left-cell {
-  border-top-left-radius: 18px;
-}
-
-.btm-left-cell {
-  border-bottom-left-radius: 18px;
-}
-
-.btm-right-cell {
-  border-bottom-right-radius: 18px;
-}
-
-.blank-cell {
-  background-color: #e4e4e4;
-}
-
+  .blank-cell {
+    background-color: #e4e4e4;
+  }
 `;
 
 export default GlobalStyles;
