@@ -91,7 +91,7 @@ export const RiskSnapshot = () => {
 
   return (
     <>
-      <MsgBanner msg={errorMsg} setMsg={(value) => setErrorMsg(value)} />
+      {/* <MsgBanner msg={errorMsg} setMsg={(value) => setErrorMsg(value)} /> */}
       <Content>
         <RiskSnapshotMenu
           date={date}

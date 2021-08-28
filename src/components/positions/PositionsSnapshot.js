@@ -54,7 +54,7 @@ const PositionsSnapshot = () => {
 
   return (
     <>
-      <MsgBanner msg={errorMsg} setMsg={(value) => setErrorMsg(value)} />
+      {/* <MsgBanner msg={errorMsg} setMsg={(value) => setErrorMsg(value)} /> */}
       <Content>
         <PositionsSnapshotMenu
           date={date}

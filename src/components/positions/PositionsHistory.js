@@ -63,7 +63,7 @@ export const PositionsHistory = () => {
 
   return (
     <>
-      <MsgBanner msg={errorMsg} setMsg={(value) => setErrorMsg(value)} />
+      {/* <MsgBanner msg={errorMsg} setMsg={(value) => setErrorMsg(value)} /> */}
       <Content>
         <PositionsHistoryMenu
           start={start}

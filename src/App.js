@@ -12,13 +12,14 @@ import Trades from "./routes/Trades";
 import Construction from "./routes/Construction";
 import Risk from "./routes/Risk";
 import NotFound from "./routes/NotFound";
+import Panes from "./components/shared/Panes";
 
 const App = () => (
   <>
     <Navbar />
     <MsgBanner />
-    {/* <Panes */}
     <Router>
+      <Panes />
       <Switch>
         <Route path="/login" component={Login} />
         <PrivateRoute exact path="/" component={Home} />

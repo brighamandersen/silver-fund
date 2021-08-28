@@ -1,30 +1,33 @@
 import React from "react";
-import Tabs from "react-bootstrap/Tabs";
-import Tab from "react-bootstrap/Tab";
-import Trades from "../trades/Trades";
-import Home from "../home/Home";
-import Risk from "../risk/Risk";
-import Positions from "../positions/Positions";
-import Construction from "../construction/Construction";
+import { useAuth } from "../../utils/AuthContext";
+import { PaneBar, Tab, activeStyle } from "./NavComponents";
 
-const Panes = (props) => (
-  <Tabs className="pane" defaultActiveKey="home" transition={false}>
-    <Tab eventKey="home" title="Home">
-      <Home username={props.username} password={props.password} />
-    </Tab>
-    <Tab eventKey="positions" title="Positions">
-      <Positions />
-    </Tab>
-    <Tab eventKey="trades" title="Trade History">
-      <Trades />
-    </Tab>
-    <Tab eventKey="construction" title="Portfolio Construction">
-      <Construction username={props.username} />
-    </Tab>
-    <Tab eventKey="risk" title="Risk Analytics">
-      <Risk />
-    </Tab>
-  </Tabs>
-);
+const Panes = () => {
+  const { loggedIn } = useAuth();
+
+  return (
+    <>
+      {loggedIn && (
+        <PaneBar>
+          <Tab exact to="/" activeStyle={activeStyle}>
+            Home
+          </Tab>
+          <Tab to="/positions" activeStyle={activeStyle}>
+            Positions
+          </Tab>
+          <Tab to="/trades" activeStyle={activeStyle}>
+            Trade History
+          </Tab>
+          <Tab to="/construction" activeStyle={activeStyle}>
+            Portfolio Construction
+          </Tab>
+          <Tab to="/risk" activeStyle={activeStyle}>
+            Risk Analytics
+          </Tab>
+        </PaneBar>
+      )}
+    </>
+  );
+};
 
 export default Panes;
