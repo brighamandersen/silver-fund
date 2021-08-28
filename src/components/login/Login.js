@@ -71,7 +71,6 @@ export const Login = () => {
               className="form-control"
               placeholder="Enter username"
               ref={usernameRef}
-              // onChange={(e) => props.setUsername(e.target.value)}
             />
           </div>
           {/* Password */}
@@ -89,7 +88,6 @@ export const Login = () => {
               className="form-control"
               placeholder="Enter password"
               ref={passwordRef}
-              // onChange={(e) => props.setPassword(e.target.value)}
             />
           </div>
           {/* Sign In */}
