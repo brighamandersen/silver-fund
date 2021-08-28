@@ -7,6 +7,7 @@ import passwordIcon from "../../media/lock.png";
 import { useAuth } from "../../utils/AuthContext";
 import { COLORS } from "../../utils/constants";
 import { useBanner } from "../../utils/BannerContext";
+import { useHistory } from "react-router";
 
 const IntroLoginWrapper = styled(Content)`
   display: flex;
@@ -23,6 +24,7 @@ const LoginNotifier = styled.p`
 export const Login = () => {
   const { logIn } = useAuth();
   const { emitErrorMsg, clearMsg } = useBanner();
+  const history = useHistory();
 
   const usernameRef = useRef();
   const passwordRef = useRef();
@@ -41,6 +43,7 @@ export const Login = () => {
     }
 
     logIn(usernameRef.current.value);
+    history.push("/");
 
     usernameRef.current.value = "";
     passwordRef.current.value = "";
