@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import DateRanger from "../shared/DateRanger";
-import GraphViewType from "../shared/GraphViewType";
-import TickerSelector from "../shared/TickerSelector";
+import DateRanger from "../DateRanger";
+import GraphViewType from "../GraphViewType";
+import TickerSelector from "../TickerSelector";
 import { POSITIONS_GVT_OPTIONS } from "../../utils/constants";
 
 const LocalMenu = styled.div`

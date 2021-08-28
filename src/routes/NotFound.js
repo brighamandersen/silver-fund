@@ -1,5 +1,5 @@
 import React from "react";
-import { Content } from "../components/shared/SharedStyles";
+import { Content } from "../components/SharedStyles";
 
 const NotFound = () => (
   <Content>

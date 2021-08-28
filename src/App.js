@@ -2,17 +2,17 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import PrivateRoute from "./utils/PrivateRoute";
-import Header from "./components/shared/Header";
-import Footer from "./components/shared/Footer";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import Login from "./routes/Login";
-import MsgBanner from "./components/shared/MsgBanner";
+import MsgBanner from "./components/MsgBanner";
 import Home from "./routes/Home";
 import Positions from "./routes/positions/Positions";
 import Trades from "./routes/Trades";
 import Construction from "./routes/Construction";
 import Risk from "./routes/risk/Risk";
 import NotFound from "./routes/NotFound";
-import Navbar from "./components/shared/nav/Navbar";
+import Navbar from "./components/nav/Navbar";
 
 const App = () => (
   <>

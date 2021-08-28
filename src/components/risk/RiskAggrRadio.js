@@ -3,7 +3,7 @@ import {
   InlineDescriptionLabel,
   RadioOptionLabel,
   RadioInput,
-} from "../shared/SharedStyles";
+} from "../SharedStyles";
 import { UnitTypeWrapper } from "./RiskUnitRadio";
 
 const RiskAggrRadio = (props) => (

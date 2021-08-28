@@ -1,7 +1,7 @@
 import React from "react";
 
-import DateSingler from "../shared/DateSingler";
-import GraphViewType from "../shared/GraphViewType";
+import DateSingler from "../DateSingler";
+import GraphViewType from "../GraphViewType";
 import { POSITIONS_GVT_OPTIONS } from "../../utils/constants";
 
 const PositionsSnapshotMenu = (props) => (

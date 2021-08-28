@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { useAuth } from "../../../utils/AuthContext";
+import { useAuth } from "../../utils/AuthContext";
 import NavTab from "./NavTab";
 
 export const Bar = styled.div`

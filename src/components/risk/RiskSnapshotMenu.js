@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import DateSingler from "../shared/DateSingler";
+import DateSingler from "../DateSingler";
 import RiskVTRadio from "./RiskVTRadio";
-import GraphViewType from "../shared/GraphViewType";
+import GraphViewType from "../GraphViewType";
 import { RISK_SNAPSHOT_GVT_OPTIONS } from "../../utils/constants";
 
 const LocalMenu = styled.div`

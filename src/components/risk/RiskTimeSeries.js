@@ -7,7 +7,7 @@ import {
   getPrimColor,
   getSecondColor,
 } from "../../utils/helpers";
-import LoadingSpinner from "../shared/LoadingSpinner";
+import LoadingSpinner from "../LoadingSpinner";
 import { COLORS } from "../../utils/constants";
 
 const RiskTimerSeries = (props) => (

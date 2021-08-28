@@ -4,7 +4,7 @@ import {
   getDateStr3MonthsBack,
   formatRiskTimeSeries,
 } from "../../utils/helpers";
-import { Content } from "../../components/shared/SharedStyles";
+import { Content } from "../../components/SharedStyles";
 import RiskThroughTimeMenu from "../../components/risk/RiskThroughTimeMenu";
 import RiskTimerSeries from "../../components/risk/RiskTimeSeries";
 import { RISK_THROUGHTIME_GVT_OPTIONS } from "../../utils/constants";

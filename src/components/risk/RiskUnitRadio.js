@@ -4,7 +4,7 @@ import {
   DescriptionLabel,
   RadioOptionLabel,
   RadioInput,
-} from "../shared/SharedStyles";
+} from "../SharedStyles";
 
 export const UnitTypeWrapper = styled.div`
   width: 365px;

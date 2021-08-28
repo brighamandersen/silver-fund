@@ -4,7 +4,7 @@ import { Route, Redirect } from "react-router-dom";
 import RiskSnapshot from "./RiskSnapshot";
 import RiskThroughTime from "./RiskThroughTime";
 import RiskWhatIf from "./RiskWhatIf";
-import { RiskSubNavbar } from "../../components/shared/nav/SubNavbars";
+import { RiskSubNavbar } from "../../components/nav/SubNavbars";
 import NotFound from "../NotFound";
 
 const Risk = () => (

@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { POSITIONS_TABLE_COLS } from "../../utils/constants";
 import { getDateStr, convertToPercentage } from "../../utils/helpers";
-// import MsgBanner from "../shared/MsgBanner";
-import SortableTable from "../../components/shared/SortableTable";
+import SortableTable from "../../components/SortableTable";
 import PositionsSnapshotMenu from "../../components/positions/PositionsSnapshotMenu";
 import PositionsBarChart from "../../components/positions/PositionsBarChart";
 import {
@@ -10,7 +9,7 @@ import {
   SnapshotTwoColWrapper,
   LeftCol,
   RightCol,
-} from "../../components/shared/SharedStyles";
+} from "../../components/SharedStyles";
 
 const PositionsSnapshot = () => {
   const [errorMsg, setErrorMsg] = useState(null);

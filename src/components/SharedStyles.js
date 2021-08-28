@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { COLORS } from "../../utils/constants";
+import { COLORS } from "../utils/constants";
 
 export const Content = styled.div`
   background-color: ${COLORS.silver};

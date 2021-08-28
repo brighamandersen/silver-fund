@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { useBanner } from "../../utils/BannerContext";
+import { useBanner } from "../utils/BannerContext";
 
-import { COLORS } from "../../utils/constants";
+import { COLORS } from "../utils/constants";
 
 const BannerWrapper = styled.div`
   background-color: ${(props) =>

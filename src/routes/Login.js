@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import styled from "styled-components";
-import { Content } from "../components/shared/SharedStyles";
+import { Content } from "../components/SharedStyles";
 import sfLogo from "../media/sf-logo-white.png";
 import usernameIcon from "../media/user.png";
 import passwordIcon from "../media/lock.png";

@@ -1,5 +1,5 @@
 import React from "react";
-import LoadingSpinner from "../shared/LoadingSpinner";
+import LoadingSpinner from "../LoadingSpinner";
 
 const RiskSnapshotTable = (props) => (
   <>

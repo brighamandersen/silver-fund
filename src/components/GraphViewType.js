@@ -1,8 +1,8 @@
 import React from "react";
-import Select from "react-select";
-import { CUSTOM_SELECT_THEME } from "../../utils/constants";
-import { InlineDescriptionLabel } from "./SharedStyles";
 import styled from "styled-components";
+import Select from "react-select";
+import { CUSTOM_SELECT_THEME } from "../utils/constants";
+import { InlineDescriptionLabel } from "./SharedStyles";
 
 const LocalWrapper = styled.div`
   width: 380px;

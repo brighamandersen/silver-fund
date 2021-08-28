@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import sfLogo from "../media/sf-logo-white.png";
 import PasswordChanger from "../components/home/PasswordChanger";
-import { Content, LeftCol } from "../components/shared/SharedStyles";
+import { Content, LeftCol } from "../components/SharedStyles";
 import { useAuth } from "../utils/AuthContext";
 
 const SfLogo = styled.img`

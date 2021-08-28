@@ -1,7 +1,7 @@
 import React from "react";
-import byuLogoText from "../../media/byu-logo-text.png";
-import { useAuth } from "../../utils/AuthContext";
-import { useBanner } from "../../utils/BannerContext";
+import byuLogoText from "../media/byu-logo-text.png";
+import { useAuth } from "../utils/AuthContext";
+import { useBanner } from "../utils/BannerContext";
 
 const Header = () => {
   const { loggedIn, logOut } = useAuth();

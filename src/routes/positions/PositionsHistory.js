@@ -5,11 +5,10 @@ import {
   getDateStr3MonthsBack,
   formatTimeSeries,
 } from "../../utils/helpers";
-// import MsgBanner from "../shared/MsgBanner";
 import PositionsHistoryMenu from "../../components/positions/PositionsHistoryMenu";
 import PositionsTimeSeries from "../../components/positions/PositionsTimeSeries";
-import SortableTable from "../../components/shared/SortableTable";
-import { Content } from "../../components/shared/SharedStyles";
+import SortableTable from "../../components/SortableTable";
+import { Content } from "../../components/SharedStyles";
 
 const PositionsHistory = () => {
   const [errorMsg, setErrorMsg] = useState(null);

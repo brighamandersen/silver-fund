@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 
 import { TRADES_TABLE_COLS } from "../utils/constants";
 import { getDateStr } from "../utils/helpers";
-// // import MsgBanner from "../components/shared/MsgBanner";
-import DateRanger from "../components/shared/DateRanger";
-import TickerSelector from "../components/shared/TickerSelector";
-import SortableTable from "../components/shared/SortableTable";
-import { Content } from "../components/shared/SharedStyles";
+// // import MsgBanner from "../components/MsgBanner";
+import DateRanger from "../components/DateRanger";
+import TickerSelector from "../components/TickerSelector";
+import SortableTable from "../components/SortableTable";
+import { Content } from "../components/SharedStyles";
 
 const Trades = () => {
   const [errorMsg, setErrorMsg] = useState(null);

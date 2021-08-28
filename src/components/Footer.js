@@ -1,8 +1,8 @@
 import React from "react";
 import styled from "styled-components";
-import { COLORS } from "../../utils/constants";
+import { COLORS } from "../utils/constants";
 
-const SFooter = styled.footer`
+const Wrapper = styled.footer`
   text-align: center;
   color: ${COLORS.fade2};
   height: 50px;
@@ -10,9 +10,9 @@ const SFooter = styled.footer`
 `;
 
 const Footer = () => (
-  <SFooter>
+  <Wrapper>
     <p>&copy; Silver Fund | All Rights Reserved</p>
-  </SFooter>
+  </Wrapper>
 );
 
 export default Footer;

@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Select from "react-select";
-
-import { CUSTOM_SELECT_THEME } from "../../utils/constants";
 import styled from "styled-components";
+import { CUSTOM_SELECT_THEME } from "../utils/constants";
 
 const SelectorWrapper = styled.div`
   width: 270px;

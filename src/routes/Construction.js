@@ -3,10 +3,9 @@ import "../components/construction/Construction.css";
 import React, { useState, useEffect } from "react";
 
 import { getPaperTarget, getPaperStats, getPaperBench } from "../utils/helpers";
-// import MsgBanner from "../components/shared/MsgBanner";
 import ConstructionAddRow from "../components/construction/ConstructionAddRow";
 import ConstructionProcess from "../components/construction/ConstructionProcess";
-import { Content } from "../components/shared/SharedStyles";
+import { Content } from "../components/SharedStyles";
 
 const Construction = (props) => {
   const [errorMsg, setErrorMsg] = useState(null);

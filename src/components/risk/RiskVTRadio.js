@@ -4,7 +4,7 @@ import {
   DescriptionLabel,
   RadioOptionLabel,
   RadioInput,
-} from "../shared/SharedStyles";
+} from "../SharedStyles";
 
 const LocalWrapper = styled.div`
   width: 160px;

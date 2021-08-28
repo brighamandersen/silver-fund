@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { getDateStr } from "../../utils/helpers";
-// import MsgBanner from "../shared/MsgBanner";
 import RiskSnapshotTable from "../../components/risk/RiskSnapshotTable";
 import RiskBarChart from "../../components/risk/RiskBarChart";
 import { RISK_SNAPSHOT_GVT_OPTIONS } from "../../utils/constants";
@@ -10,7 +9,7 @@ import {
   SnapshotTwoColWrapper,
   LeftCol,
   RightCol,
-} from "../../components/shared/SharedStyles";
+} from "../../components/SharedStyles";
 import RiskSnapshotMenu from "../../components/risk/RiskSnapshotMenu";
 
 const RiskSnapshot = () => {

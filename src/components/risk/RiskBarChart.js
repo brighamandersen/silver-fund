@@ -2,7 +2,7 @@ import React from "react";
 import { HorizontalBar } from "react-chartjs-2";
 
 import { formatAsCurrency, formatAsPercentage } from "../../utils/helpers";
-import LoadingSpinner from "../shared/LoadingSpinner";
+import LoadingSpinner from "../LoadingSpinner";
 import { COLORS } from "../../utils/constants";
 
 const RiskBarChart = (props) => (

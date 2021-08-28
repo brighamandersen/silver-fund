@@ -1,7 +1,7 @@
 import React from "react";
 import PositionsSnapshot from "./PositionsSnapshot";
 import PositionsHistory from "./PositionsHistory";
-import { PositionsSubNavbar } from "../../components/shared/nav/SubNavbars";
+import { PositionsSubNavbar } from "../../components/nav/SubNavbars";
 import { Redirect, Route } from "react-router";
 import NotFound from "../NotFound";
 

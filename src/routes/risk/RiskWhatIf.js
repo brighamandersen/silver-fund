@@ -6,7 +6,7 @@ import {
   TwoColWrapper,
   RightCol,
   LeftCol,
-} from "../../components/shared/SharedStyles";
+} from "../../components/SharedStyles";
 import RiskVTRadio from "../../components/risk/RiskVTRadio";
 import RiskWhatIfStocksTable from "../../components/risk/RiskWhatIfStocksTable";
 import RiskWhatIfStatsTable from "../../components/risk/RiskWhatIfStatsTable";

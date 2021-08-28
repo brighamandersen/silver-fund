@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { NavLink } from "react-router-dom";
 
-import { COLORS, CORNER_ROUNDING } from "../../../utils/constants";
+import { COLORS, CORNER_ROUNDING } from "../../utils/constants";
 
 const activeStyle = {
   color: COLORS.navy,

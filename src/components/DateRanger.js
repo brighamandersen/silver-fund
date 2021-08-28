@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { getDateStr } from "../../utils/helpers";
+import { getDateStr } from "../utils/helpers";
 import { InlineDescriptionLabel, DateInput } from "./SharedStyles";
 
 const LocalWrapper = styled.div`
