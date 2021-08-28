@@ -1,12 +1,12 @@
 import React, { useRef } from "react";
 import styled from "styled-components";
-import { Content } from "../shared/SharedStyles";
-import About from "./About";
-import usernameIcon from "../../media/user.png";
-import passwordIcon from "../../media/lock.png";
-import { useAuth } from "../../utils/AuthContext";
-import { COLORS } from "../../utils/constants";
-import { useBanner } from "../../utils/BannerContext";
+import { Content } from "../components/shared/SharedStyles";
+import About from "../components/login/About";
+import usernameIcon from "../media/user.png";
+import passwordIcon from "../media/lock.png";
+import { useAuth } from "../utils/AuthContext";
+import { COLORS } from "../utils/constants";
+import { useBanner } from "../utils/BannerContext";
 import { useHistory } from "react-router";
 
 const IntroLoginWrapper = styled(Content)`

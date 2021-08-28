@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 
-import { TRADES_TABLE_COLS } from "../../utils/constants";
-import { getDateStr } from "../../utils/helpers";
-import MsgBanner from "../shared/MsgBanner";
-import DateRanger from "../shared/DateRanger";
-import TickerSelector from "../shared/TickerSelector";
-import SortableTable from "../shared/SortableTable";
-import { Content } from "../shared/SharedStyles";
+import { TRADES_TABLE_COLS } from "../utils/constants";
+import { getDateStr } from "../utils/helpers";
+// // import MsgBanner from "../components/shared/MsgBanner";
+import DateRanger from "../components/shared/DateRanger";
+import TickerSelector from "../components/shared/TickerSelector";
+import SortableTable from "../components/shared/SortableTable";
+import { Content } from "../components/shared/SharedStyles";
 
 export const Trades = () => {
   const [errorMsg, setErrorMsg] = useState(null);
@@ -58,7 +57,7 @@ export const Trades = () => {
 
   return (
     <>
-      <MsgBanner msg={errorMsg} setMsg={(value) => setErrorMsg(value)} />
+      {/* <MsgBanner msg={errorMsg} setMsg={(value) => setErrorMsg(value)} /> */}
       <Content>
         <div className="d-inline-block">
           <DateRanger

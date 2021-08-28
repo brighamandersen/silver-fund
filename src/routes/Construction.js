@@ -1,17 +1,12 @@
-import "./Construction.css";
+import "../components/construction/Construction.css";
 
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 
-import {
-  getPaperTarget,
-  getPaperStats,
-  getPaperBench,
-} from "../../utils/helpers";
-import MsgBanner from "../shared/MsgBanner";
-import ConstructionAddRow from "./ConstructionAddRow";
-import ConstructionProcess from "./ConstructionProcess";
-import { Content } from "../shared/SharedStyles";
+import { getPaperTarget, getPaperStats, getPaperBench } from "../utils/helpers";
+// import MsgBanner from "../components/shared/MsgBanner";
+import ConstructionAddRow from "../components/construction/ConstructionAddRow";
+import ConstructionProcess from "../components/construction/ConstructionProcess";
+import { Content } from "../components/shared/SharedStyles";
 
 export const Construction = (props) => {
   const [errorMsg, setErrorMsg] = useState(null);
@@ -151,7 +146,7 @@ export const Construction = (props) => {
 
   return (
     <>
-      <MsgBanner msg={errorMsg} setMsg={(value) => setErrorMsg(value)} />
+      {/* <MsgBanner msg={errorMsg} setMsg={(value) => setErrorMsg(value)} /> */}
       <Content>
         <ConstructionProcess
           paperTarget={paperTarget}

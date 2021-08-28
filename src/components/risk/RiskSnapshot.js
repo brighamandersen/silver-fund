@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { getDateStr } from "../../utils/helpers";
-import MsgBanner from "../shared/MsgBanner";
+// import MsgBanner from "../shared/MsgBanner";
 import RiskSnapshotTable from "./RiskSnapshotTable";
 import RiskBarChart from "./RiskBarChart";
 import { RISK_SNAPSHOT_GVT_OPTIONS } from "../../utils/constants";

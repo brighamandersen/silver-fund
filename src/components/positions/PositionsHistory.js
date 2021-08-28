@@ -7,7 +7,7 @@ import {
   getDateStr3MonthsBack,
   formatTimeSeries,
 } from "../../utils/helpers";
-import MsgBanner from "../shared/MsgBanner";
+// import MsgBanner from "../shared/MsgBanner";
 import PositionsHistoryMenu from "./PositionsHistoryMenu";
 import PositionsTimeSeries from "./PositionsTimeSeries";
 import SortableTable from "../shared/SortableTable";

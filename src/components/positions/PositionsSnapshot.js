@@ -3,7 +3,7 @@ import axios from "axios";
 
 import { POSITIONS_TABLE_COLS } from "../../utils/constants";
 import { getDateStr, convertToPercentage } from "../../utils/helpers";
-import MsgBanner from "../shared/MsgBanner";
+// import MsgBanner from "../shared/MsgBanner";
 import SortableTable from "../shared/SortableTable";
 import PositionsSnapshotMenu from "./PositionsSnapshotMenu";
 import PositionsBarChart from "./PositionsBarChart";

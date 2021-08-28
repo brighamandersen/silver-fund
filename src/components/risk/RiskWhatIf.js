@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-import MsgBanner from "../shared/MsgBanner";
+// import MsgBanner from "../shared/MsgBanner";
 import {
   Content,
   TwoColWrapper,
