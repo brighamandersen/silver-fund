@@ -10,7 +10,6 @@
     "chart.js": "^2.9.3",
     "install": "^0.13.0",
     "npm": "^7.21.0",
-    "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-bootstrap": "^1.4.3",
     "react-bootstrap-tabs": "^2.0.0",

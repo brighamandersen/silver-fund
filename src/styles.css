@@ -134,18 +134,3 @@ td {
 .blank-cell {
   background-color: #e4e4e4;
 }
-
-/* MOBILE ADJUSTMENTS */
-
-@media (max-width: 600px) {
-  #sf-alpha {
-    display: none;
-  }
-}
-
-/* SMALL MOBILE ADJUSTMENTS  */
-@media (max-width: 375px) {
-  #byu-text {
-    display: none;
-  }
-}
