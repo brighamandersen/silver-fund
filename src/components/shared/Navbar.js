@@ -17,7 +17,7 @@ const Navbar = () => {
         <h3 className="float-left">
           <img
             src={byuLogoText}
-            alt=""
+            alt="Silver Fund Logo"
             style={{
               height: "29px",
               paddingBottom: "6px",

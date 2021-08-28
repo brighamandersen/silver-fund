@@ -135,14 +135,6 @@ td {
   background-color: #e4e4e4;
 }
 
-/* WIDE TABLET ADJUSTMENTS */
-
-@media (max-width: 1260px) {
-  .home-logo {
-    display: none;
-  }
-}
-
 /* MOBILE ADJUSTMENTS */
 
 @media (max-width: 600px) {

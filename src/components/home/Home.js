@@ -3,6 +3,17 @@ import sfLogo from "../../media/sf-logo-white.png";
 import PasswordChanger from "./PasswordChanger";
 import { Content, LeftCol } from "../shared/SharedStyles";
 import { useAuth } from "../../utils/AuthContext";
+import styled from "styled-components";
+
+const SfLogo = styled.img`
+  height: 500px;
+  margin-left: 80px;
+  margin-top: 40px;
+
+  @media (max-width: 1260px) {
+    display: none;
+  }
+`;
 
 const Home = () => {
   const { username } = useAuth();
@@ -27,12 +38,7 @@ const Home = () => {
         </a>
         <PasswordChanger />
       </LeftCol>
-      <img
-        src={sfLogo}
-        className="home-logo"
-        style={{ height: "500px", marginLeft: "80px", marginTop: "40px" }}
-        alt=""
-      />
+      <SfLogo src={sfLogo} className="home-logo" alt="Silver Fund Logo" />
     </Content>
   );
 };

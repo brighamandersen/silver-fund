@@ -74,7 +74,11 @@ export const PasswordChanger = () => {
           </Notice>
           <div className="input-group mb-3">
             <div className="input-group-prepend">
-              <Icon className="input-group-text" src={passwordIcon} alt="" />
+              <Icon
+                className="input-group-text"
+                src={passwordIcon}
+                alt="Password Icon"
+              />
             </div>
             <input
               type="password"
@@ -86,7 +90,11 @@ export const PasswordChanger = () => {
           </div>
           <div className="input-group mb-3">
             <div className="input-group-prepend">
-              <Icon className="input-group-text" src={passwordIcon} alt="" />
+              <Icon
+                className="input-group-text"
+                src={passwordIcon}
+                alt="Password Icon"
+              />
             </div>
             <input
               type="password"

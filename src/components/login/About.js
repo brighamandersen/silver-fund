@@ -10,7 +10,7 @@ const H1 = styled.h1`
 
 const About = () => (
   <div className="sf-intro m-4">
-    <img src={sfLogo} alt="" className="trading-img w-50 py-3" />
+    <img src={sfLogo} alt="Chart Icon" className="trading-img w-50 py-3" />
     <H1>Silver Fund Web App</H1>
     <p className="intro-info">
       An institutional-quality web app created for use by Silver Fund, The

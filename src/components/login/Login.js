@@ -62,7 +62,7 @@ export const Login = () => {
               <img
                 className="input-group-text"
                 src={usernameIcon}
-                alt=""
+                alt="Username Icon"
                 style={{ width: "50px" }}
               />
             </div>
@@ -80,7 +80,7 @@ export const Login = () => {
               <img
                 className="input-group-text"
                 src={passwordIcon}
-                alt=""
+                alt="Password Icon"
                 style={{ width: "50px" }}
               />
             </div>
