@@ -1,15 +1,15 @@
 import React, { useRef } from "react";
 import styled from "styled-components";
 import { Content } from "../components/shared/SharedStyles";
-import About from "../components/login/About";
+import sfLogo from "../media/sf-logo-white.png";
 import usernameIcon from "../media/user.png";
 import passwordIcon from "../media/lock.png";
 import { useAuth } from "../utils/AuthContext";
-import { COLORS } from "../utils/constants";
+import { COLORS, CORNER_ROUNDING } from "../utils/constants";
 import { useBanner } from "../utils/BannerContext";
 import { useHistory } from "react-router";
 
-const IntroLoginWrapper = styled(Content)`
+const Wrapper = styled(Content)`
   display: flex;
   flex-wrap: wrap-reverse;
   align-items: center;
@@ -17,9 +17,51 @@ const IntroLoginWrapper = styled(Content)`
   min-height: 86vh;
 `;
 
+const AboutWrapper = styled.div`
+  text-align: center;
+  max-width: 650px;
+  margin: 2rem;
+
+  p {
+    padding: 20px;
+    font-size: 20px;
+    color: ${COLORS.black};
+  }
+`;
+
+const LoginSection = styled.div`
+  border-radius: ${CORNER_ROUNDING};
+
+  h3 {
+    color: ${COLORS.black};
+    text-align: center;
+  }
+`;
+
 const LoginNotifier = styled.p`
   color: ${COLORS.successGreen};
 `;
+
+const AboutSection = () => (
+  <AboutWrapper>
+    <img src={sfLogo} alt="Chart Icon" className="w-50 py-3" />
+    <h1>Silver Fund Web App</h1>
+    <p>
+      An institutional-quality web app created for use by Silver Fund, The
+      Marriott Business School's student-run investment fund. This app aims to
+      support investment research, trading, risk management, and portfolio
+      analysis.
+    </p>
+    <a
+      className="btn px-4"
+      href="https://silverfund.byu.edu/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Learn More
+    </a>
+  </AboutWrapper>
+);
 
 export const Login = () => {
   const { logIn } = useAuth();
@@ -50,10 +92,10 @@ export const Login = () => {
   };
 
   return (
-    <IntroLoginWrapper>
-      <About />
-      <div className="card login-box p-4 m-5">
-        <h3 className="card-title">Welcome Back!</h3>
+    <Wrapper>
+      <AboutSection />
+      <LoginSection className="card p-4 m-5">
+        <h3>Welcome Back!</h3>
         <LoginNotifier>Enter anything for username and password</LoginNotifier>
         <form>
           {/* Username */}
@@ -108,8 +150,8 @@ export const Login = () => {
             Contact Us
           </a>
         </form>
-      </div>
-    </IntroLoginWrapper>
+      </LoginSection>
+    </Wrapper>
   );
 };
 
