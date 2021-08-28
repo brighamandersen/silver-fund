@@ -8,7 +8,7 @@ import TickerSelector from "../components/shared/TickerSelector";
 import SortableTable from "../components/shared/SortableTable";
 import { Content } from "../components/shared/SharedStyles";
 
-export const Trades = () => {
+const Trades = () => {
   const [errorMsg, setErrorMsg] = useState(null);
   const [start, setStart] = useState("2020-01-01");
   const [end, setEnd] = useState(getDateStr(-1));

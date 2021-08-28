@@ -11,7 +11,7 @@ import PositionsTimeSeries from "../../components/positions/PositionsTimeSeries"
 import SortableTable from "../../components/shared/SortableTable";
 import { Content } from "../../components/shared/SharedStyles";
 
-export const PositionsHistory = () => {
+const PositionsHistory = () => {
   const [errorMsg, setErrorMsg] = useState(null);
   const [apiPositions, setApiPositions] = useState([]);
   const [start, setStart] = useState(getDateStr3MonthsBack());

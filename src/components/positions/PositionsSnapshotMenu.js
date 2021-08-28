@@ -4,7 +4,7 @@ import DateSingler from "../shared/DateSingler";
 import GraphViewType from "../shared/GraphViewType";
 import { POSITIONS_GVT_OPTIONS } from "../../utils/constants";
 
-export const PositionsSnapshotMenu = (props) => (
+const PositionsSnapshotMenu = (props) => (
   <>
     <div className="d-inline-block">
       <DateSingler date={props.date} setDate={props.setDate} />

@@ -63,7 +63,7 @@ const AboutSection = () => (
   </AboutWrapper>
 );
 
-export const Login = () => {
+const Login = () => {
   const { logIn } = useAuth();
   const { emitErrorMsg, clearMsg } = useBanner();
   const history = useHistory();

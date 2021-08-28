@@ -1,7 +1,7 @@
 import React from "react";
 import LoadingSpinner from "../shared/LoadingSpinner";
 
-export const RiskSnapshotTable = (props) => (
+const RiskSnapshotTable = (props) => (
   <>
     {props.tableData && props.tableData.date ? (
       <table>

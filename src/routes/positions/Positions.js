@@ -5,7 +5,7 @@ import { PositionsSubNavbar } from "../../components/shared/nav/SubNavbars";
 import { Redirect, Route } from "react-router";
 import NotFound from "../NotFound";
 
-export const Positions = () => (
+const Positions = () => (
   <>
     <PositionsSubNavbar />
     <Route exact path="/positions/snapshot" component={PositionsSnapshot} />

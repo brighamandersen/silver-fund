@@ -17,7 +17,7 @@ const Icon = styled.img`
   width: 50px;
 `;
 
-export const PasswordChanger = () => {
+const PasswordChanger = () => {
   const [oldPwd, setOldPwd] = useState("");
   const [newPwd, setNewPwd] = useState("");
   const [newPwdConfirm, setNewPwdConfirm] = useState("");

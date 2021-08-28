@@ -9,7 +9,7 @@ const SFooter = styled.footer`
   padding-top: 15px;
 `;
 
-export const Footer = () => (
+const Footer = () => (
   <SFooter>
     <p>&copy; Silver Fund | All Rights Reserved</p>
   </SFooter>

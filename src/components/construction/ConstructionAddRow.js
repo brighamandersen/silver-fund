@@ -3,7 +3,7 @@ import Select from "react-select";
 
 import { CUSTOM_SELECT_THEME } from "../../utils/constants";
 
-export const ConstructionAddRow = (props) => {
+const ConstructionAddRow = (props) => {
   const onChangeAddTicker = (value) => {
     props.setErrorMsg(null);
 

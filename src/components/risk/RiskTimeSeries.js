@@ -10,7 +10,7 @@ import {
 import LoadingSpinner from "../shared/LoadingSpinner";
 import { COLORS } from "../../utils/constants";
 
-export const RiskTimerSeries = (props) => (
+const RiskTimerSeries = (props) => (
   <div
     style={{
       backgroundColor: COLORS.white,

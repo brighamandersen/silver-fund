@@ -12,7 +12,7 @@ const LocalMenu = styled.div`
   align-items: center;
 `;
 
-export const PositionsHistoryMenu = (props) => (
+const PositionsHistoryMenu = (props) => (
   <>
     <LocalMenu>
       <div>

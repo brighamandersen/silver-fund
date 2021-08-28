@@ -13,7 +13,7 @@ import {
 } from "../../components/shared/SharedStyles";
 import RiskSnapshotMenu from "../../components/risk/RiskSnapshotMenu";
 
-export const RiskSnapshot = () => {
+const RiskSnapshot = () => {
   const [errorMsg, setErrorMsg] = useState(null);
   const [apiSnapshot, setApiSnapshot] = useState({});
   const [riskSnapshot, setRiskSnapshot] = useState([]);

@@ -8,7 +8,7 @@ import ConstructionAddRow from "../components/construction/ConstructionAddRow";
 import ConstructionProcess from "../components/construction/ConstructionProcess";
 import { Content } from "../components/shared/SharedStyles";
 
-export const Construction = (props) => {
+const Construction = (props) => {
   const [errorMsg, setErrorMsg] = useState(null);
   const [apiSecurities, setApiSecurities] = useState([]);
   const [paperTarget, setPaperTarget] = useState(getPaperTarget());

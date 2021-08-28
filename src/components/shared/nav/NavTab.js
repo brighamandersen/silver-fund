@@ -29,10 +29,12 @@ const Tab = styled(NavLink)`
   }
 `;
 
-export const NavTab = ({ exact, to, children }) => {
+const NavTab = ({ exact, to, children }) => {
   return (
     <Tab exact={exact} to={to} activeStyle={activeStyle}>
       {children}
     </Tab>
   );
 };
+
+export default NavTab;

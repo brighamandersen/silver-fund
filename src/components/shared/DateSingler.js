@@ -8,7 +8,7 @@ const LocalWrapper = styled.div`
   margin: 10px;
 `;
 
-export const DateSingler = (props) => (
+const DateSingler = (props) => (
   <LocalWrapper>
     <InlineDescriptionLabel>Date:</InlineDescriptionLabel>
     <DateInput

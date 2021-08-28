@@ -11,7 +11,7 @@ import RiskVTRadio from "../../components/risk/RiskVTRadio";
 import RiskWhatIfStocksTable from "../../components/risk/RiskWhatIfStocksTable";
 import RiskWhatIfStatsTable from "../../components/risk/RiskWhatIfStatsTable";
 
-export const RiskWhatIfAnalysis = () => {
+const RiskWhatIfAnalysis = () => {
   const [errorMsg, setErrorMsg] = useState(null);
   const [riskVT, setRiskVT] = useState("total");
 

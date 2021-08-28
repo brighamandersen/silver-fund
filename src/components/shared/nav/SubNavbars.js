@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import { COLORS } from "../../../utils/constants";
 import { Bar } from "./Navbar";
-import { NavTab } from "./NavTab";
+import NavTab from "./NavTab";
 
 const SubBar = styled(Bar)`
   background-color: ${COLORS.fade1};

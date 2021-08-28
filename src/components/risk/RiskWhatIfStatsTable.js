@@ -1,6 +1,6 @@
 import React from "react";
 
-export const RiskWhatIfStatsTable = () => (
+const RiskWhatIfStatsTable = () => (
   <>
     <h3>Risk Statistics (Before and After)</h3>
     <table>

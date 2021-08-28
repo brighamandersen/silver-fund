@@ -9,7 +9,7 @@ const LocalWrapper = styled.div`
   margin: 10px;
 `;
 
-export const DateRanger = (props) => (
+const DateRanger = (props) => (
   <LocalWrapper>
     <InlineDescriptionLabel>Start Date:</InlineDescriptionLabel>
     <DateInput

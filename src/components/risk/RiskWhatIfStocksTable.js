@@ -3,7 +3,7 @@ import Select from "react-select";
 
 import { CUSTOM_SELECT_THEME } from "../../utils/constants";
 
-export const RiskWhatIfStocksTable = (props) => {
+const RiskWhatIfStocksTable = (props) => {
   const [selectedStocks, setSelectedStocks] = useState([]);
 
   const allStocks = [

@@ -3,23 +3,18 @@ import { useTable, useSortBy } from "react-table";
 
 import LoadingSpinner from "./LoadingSpinner";
 
-export const SortableTable = (props) => {
-  const {
-    getTableProps,
-    getTableBodyProps,
-    headerGroups,
-    rows,
-    prepareRow,
-  } = useTable(
-    {
-      columns: props.tableColumns,
-      data: props.tableData,
-      initialState: {
-        sortBy: [{ id: props.initialSort, desc: true }],
+const SortableTable = (props) => {
+  const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
+    useTable(
+      {
+        columns: props.tableColumns,
+        data: props.tableData,
+        initialState: {
+          sortBy: [{ id: props.initialSort, desc: true }],
+        },
       },
-    },
-    useSortBy
-  );
+      useSortBy
+    );
 
   return (
     <div>

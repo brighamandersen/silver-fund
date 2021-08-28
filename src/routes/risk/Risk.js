@@ -7,7 +7,7 @@ import RiskWhatIf from "./RiskWhatIf";
 import { RiskSubNavbar } from "../../components/shared/nav/SubNavbars";
 import NotFound from "../NotFound";
 
-export const Risk = () => (
+const Risk = () => (
   <>
     <RiskSubNavbar />
     <Route exact path="/risk/snapshot" component={RiskSnapshot} />

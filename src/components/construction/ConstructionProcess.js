@@ -3,7 +3,7 @@ import React from "react";
 import { formatAsDecimal } from "../../utils/helpers";
 import axios from "axios";
 
-export const ConstructionProcess = (props) => {
+const ConstructionProcess = (props) => {
   const runPortOpt = () => {
     // axios
     //   .get("api/port-opt", {

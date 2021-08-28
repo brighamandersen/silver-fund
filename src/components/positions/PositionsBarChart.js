@@ -5,7 +5,7 @@ import { formatAsCurrency, formatAsPercentage } from "../../utils/helpers";
 import LoadingSpinner from "../shared/LoadingSpinner";
 import { COLORS } from "../../utils/constants";
 
-export const PositionsBarChart = (props) => (
+const PositionsBarChart = (props) => (
   <>
     {props.tickerData && props.tickerData.length > 0 ? (
       <div

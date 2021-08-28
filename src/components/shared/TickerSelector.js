@@ -8,7 +8,7 @@ const SelectorWrapper = styled.div`
   width: 270px;
 `;
 
-export const TickerSelector = (props) => {
+const TickerSelector = (props) => {
   const [tickerFilter, setTickerFilter] = useState([]);
   let tickerOptions = props.optionsData.map(({ ticker }) => ticker);
   tickerOptions = [...new Set(tickerOptions)];

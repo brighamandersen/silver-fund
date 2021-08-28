@@ -9,7 +9,7 @@ import RiskThroughTimeMenu from "../../components/risk/RiskThroughTimeMenu";
 import RiskTimerSeries from "../../components/risk/RiskTimeSeries";
 import { RISK_THROUGHTIME_GVT_OPTIONS } from "../../utils/constants";
 
-export const RiskThroughTime = () => {
+const RiskThroughTime = () => {
   const [errorMsg, setErrorMsg] = useState(null);
   const [graphVT, setGraphVT] = useState(0);
   const [riskVT, setRiskVT] = useState("total");

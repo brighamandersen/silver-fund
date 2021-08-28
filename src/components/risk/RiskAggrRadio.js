@@ -6,7 +6,7 @@ import {
 } from "../shared/SharedStyles";
 import { UnitTypeWrapper } from "./RiskUnitRadio";
 
-export const RiskAggrRadio = (props) => (
+const RiskAggrRadio = (props) => (
   <UnitTypeWrapper>
     <InlineDescriptionLabel>Aggregation Option:</InlineDescriptionLabel>
     <RadioOptionLabel>

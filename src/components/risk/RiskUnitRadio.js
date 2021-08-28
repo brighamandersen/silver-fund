@@ -11,7 +11,7 @@ export const UnitTypeWrapper = styled.div`
   margin: 10px;
 `;
 
-export const RiskUnitRadio = (props) => (
+const RiskUnitRadio = (props) => (
   <UnitTypeWrapper>
     <DescriptionLabel>Analytical Unit Type:</DescriptionLabel>
     <RadioOptionLabel>
