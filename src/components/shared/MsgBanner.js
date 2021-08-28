@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { useBanner } from "../../utils/BannerContext";
 
 import { COLORS } from "../../utils/constants";
 
@@ -19,15 +20,18 @@ const CloseBannerX = styled.span`
   }
 `;
 
-export const MsgBanner = (props) => (
-  <>
-    {props.msg && (
-      <BannerWrapper success={props.success}>
-        {props.msg}
-        <CloseBannerX onClick={() => props.setMsg(null)}>🞬</CloseBannerX>
-      </BannerWrapper>
-    )}
-  </>
-);
+const MsgBanner = () => {
+  const { isSuccess, msg, clearMsg } = useBanner();
 
+  return (
+    <>
+      {msg && (
+        <BannerWrapper success={isSuccess}>
+          {msg}
+          <CloseBannerX onClick={clearMsg}>🞬</CloseBannerX>
+        </BannerWrapper>
+      )}
+    </>
+  );
+};
 export default MsgBanner;

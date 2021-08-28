@@ -2,11 +2,14 @@ import React from "react";
 import ReactDOM from "react-dom";
 import App from "./App";
 import { AuthProvider } from "./utils/AuthContext";
+import { BannerProvider } from "./utils/BannerContext";
 
-const AppWithAuth = (
+const AppWithProviders = (
   <AuthProvider>
-    <App />
+    <BannerProvider>
+      <App />
+    </BannerProvider>
   </AuthProvider>
 );
 
-ReactDOM.render(AppWithAuth, document.getElementById("root"));
+ReactDOM.render(AppWithProviders, document.getElementById("root"));
