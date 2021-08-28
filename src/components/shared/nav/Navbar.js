@@ -1,14 +1,14 @@
 import React from "react";
-import { useAuth } from "../../utils/AuthContext";
-import { PaneBar, Tab, activeStyle } from "./NavComponents";
+import { useAuth } from "../../../utils/AuthContext";
+import { Bar, Tab, activeStyle } from "./NavComponents";
 
-const Panes = () => {
+const Navbar = () => {
   const { loggedIn } = useAuth();
 
   return (
     <>
       {loggedIn && (
-        <PaneBar>
+        <Bar>
           <Tab exact to="/" activeStyle={activeStyle}>
             Home
           </Tab>
@@ -24,10 +24,10 @@ const Panes = () => {
           <Tab to="/risk" activeStyle={activeStyle}>
             Risk Analytics
           </Tab>
-        </PaneBar>
+        </Bar>
       )}
     </>
   );
 };
 
-export default Panes;
+export default Navbar;

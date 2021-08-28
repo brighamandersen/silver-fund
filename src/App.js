@@ -2,24 +2,24 @@ import "./styles.css";
 import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import PrivateRoute from "./utils/PrivateRoute";
-import Navbar from "./components/shared/Navbar";
+import Header from "./components/shared/Header";
 import Footer from "./components/shared/Footer";
 import Login from "./routes/Login";
 import MsgBanner from "./components/shared/MsgBanner";
 import Home from "./routes/Home";
-import Positions from "./routes/Positions";
+import Positions from "./routes/positions/Positions";
 import Trades from "./routes/Trades";
 import Construction from "./routes/Construction";
-import Risk from "./routes/Risk";
+import Risk from "./routes/risk/Risk";
 import NotFound from "./routes/NotFound";
-import Panes from "./components/shared/Panes";
+import Navbar from "./components/shared/nav/Navbar";
 
 const App = () => (
   <>
-    <Navbar />
+    <Header />
     <MsgBanner />
     <Router>
-      <Panes />
+      <Navbar />
       <Switch>
         <Route path="/login" component={Login} />
         <PrivateRoute exact path="/" component={Home} />

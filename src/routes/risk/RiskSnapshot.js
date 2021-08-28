@@ -2,16 +2,16 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { getDateStr } from "../../utils/helpers";
 // import MsgBanner from "../shared/MsgBanner";
-import RiskSnapshotTable from "./RiskSnapshotTable";
-import RiskBarChart from "./RiskBarChart";
+import RiskSnapshotTable from "../../components/risk/RiskSnapshotTable";
+import RiskBarChart from "../../components/risk/RiskBarChart";
 import { RISK_SNAPSHOT_GVT_OPTIONS } from "../../utils/constants";
 import {
   Content,
   SnapshotTwoColWrapper,
   LeftCol,
   RightCol,
-} from "../shared/SharedStyles";
-import RiskSnapshotMenu from "./RiskSnapshotMenu";
+} from "../../components/shared/SharedStyles";
+import RiskSnapshotMenu from "../../components/risk/RiskSnapshotMenu";
 
 export const RiskSnapshot = () => {
   const [errorMsg, setErrorMsg] = useState(null);

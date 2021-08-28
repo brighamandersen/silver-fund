@@ -6,10 +6,10 @@ import {
   TwoColWrapper,
   RightCol,
   LeftCol,
-} from "../shared/SharedStyles";
-import RiskVTRadio from "./RiskVTRadio";
-import RiskWhatIfStocksTable from "./RiskWhatIfStocksTable";
-import RiskWhatIfStatsTable from "./RiskWhatIfStatsTable";
+} from "../../components/shared/SharedStyles";
+import RiskVTRadio from "../../components/risk/RiskVTRadio";
+import RiskWhatIfStocksTable from "../../components/risk/RiskWhatIfStocksTable";
+import RiskWhatIfStatsTable from "../../components/risk/RiskWhatIfStatsTable";
 
 export const RiskWhatIfAnalysis = () => {
   const [errorMsg, setErrorMsg] = useState(null);

@@ -21,6 +21,6 @@ const Spinner = styled.div`
   }
 `;
 
-export const LoadingSpinner = () => <Spinner />;
+const LoadingSpinner = () => <Spinner />;
 
 export default LoadingSpinner;

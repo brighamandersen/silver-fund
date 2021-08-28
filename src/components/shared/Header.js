@@ -1,10 +1,9 @@
 import React from "react";
-// import PropTypes from "prop-types";
 import byuLogoText from "../../media/byu-logo-text.png";
 import { useAuth } from "../../utils/AuthContext";
 import { useBanner } from "../../utils/BannerContext";
 
-const Navbar = () => {
+const Header = () => {
   const { loggedIn, logOut } = useAuth();
   const { clearMsg } = useBanner();
 
@@ -46,9 +45,4 @@ const Navbar = () => {
   );
 };
 
-// Navbar.propTypes = {
-//   loggedIn: PropTypes.bool.isRequired,
-//   logOut: PropTypes.func.isRequired,
-// };
-
-export default Navbar;
+export default Header;

@@ -1,18 +1,16 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-
 import { POSITIONS_TABLE_COLS } from "../../utils/constants";
 import { getDateStr, convertToPercentage } from "../../utils/helpers";
 // import MsgBanner from "../shared/MsgBanner";
-import SortableTable from "../shared/SortableTable";
-import PositionsSnapshotMenu from "./PositionsSnapshotMenu";
-import PositionsBarChart from "./PositionsBarChart";
+import SortableTable from "../../components/shared/SortableTable";
+import PositionsSnapshotMenu from "../../components/positions/PositionsSnapshotMenu";
+import PositionsBarChart from "../../components/positions/PositionsBarChart";
 import {
   Content,
   SnapshotTwoColWrapper,
   LeftCol,
   RightCol,
-} from "../shared/SharedStyles";
+} from "../../components/shared/SharedStyles";
 
 const PositionsSnapshot = () => {
   const [errorMsg, setErrorMsg] = useState(null);

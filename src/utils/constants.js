@@ -18,6 +18,8 @@ export const COLORS = {
   successGreen: "#0fb56d",
 };
 
+export const CORNER_ROUNDING = "15px";
+
 export const POSITIONS_GVT_OPTIONS = [
   { value: 0, label: "$ Positions by Stock" },
   { value: 1, label: "% Positions by Stock" },

@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
 import {
   getDateStr,
   getDateStr3MonthsBack,
   formatRiskTimeSeries,
 } from "../../utils/helpers";
-import { Content } from "../shared/SharedStyles";
-import RiskThroughTimeMenu from "./RiskThroughTimeMenu";
-import RiskTimerSeries from "./RiskTimeSeries";
+import { Content } from "../../components/shared/SharedStyles";
+import RiskThroughTimeMenu from "../../components/risk/RiskThroughTimeMenu";
+import RiskTimerSeries from "../../components/risk/RiskTimeSeries";
 import { RISK_THROUGHTIME_GVT_OPTIONS } from "../../utils/constants";
 
 export const RiskThroughTime = () => {

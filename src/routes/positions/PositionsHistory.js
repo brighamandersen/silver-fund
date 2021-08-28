@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from "react";
-import axios from "axios";
-
 import { POSITIONS_TABLE_COLS } from "../../utils/constants";
 import {
   getDateStr,
@@ -8,10 +6,10 @@ import {
   formatTimeSeries,
 } from "../../utils/helpers";
 // import MsgBanner from "../shared/MsgBanner";
-import PositionsHistoryMenu from "./PositionsHistoryMenu";
-import PositionsTimeSeries from "./PositionsTimeSeries";
-import SortableTable from "../shared/SortableTable";
-import { Content } from "../shared/SharedStyles";
+import PositionsHistoryMenu from "../../components/positions/PositionsHistoryMenu";
+import PositionsTimeSeries from "../../components/positions/PositionsTimeSeries";
+import SortableTable from "../../components/shared/SortableTable";
+import { Content } from "../../components/shared/SharedStyles";
 
 export const PositionsHistory = () => {
   const [errorMsg, setErrorMsg] = useState(null);
