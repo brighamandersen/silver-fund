@@ -20,6 +20,16 @@ export const COLORS = {
 
 export const CORNER_ROUNDING = "15px";
 
+/* Custom theme for React Select */
+export const CUSTOM_SELECT_THEME = (theme) => ({
+  ...theme,
+  colors: {
+    ...theme.colors,
+    primary25: COLORS.silver,
+    primary: COLORS.navy,
+  },
+});
+
 export const POSITIONS_GVT_OPTIONS = [
   { value: 0, label: "$ Positions by Stock" },
   { value: 1, label: "% Positions by Stock" },
@@ -28,7 +38,7 @@ export const POSITIONS_GVT_OPTIONS = [
 export const POSITIONS_TABLE_COLS = [
   {
     Header: "Asset ID",
-    accessor: "asset_id",
+    accessor: "assetId",
   },
   {
     Header: "Ticker",
@@ -36,13 +46,13 @@ export const POSITIONS_TABLE_COLS = [
   },
   {
     Header: "# of Shares",
-    accessor: "num_of_shares",
+    accessor: "numShares",
     Cell: (props) => <div> {formatAsAmount(props.value)}</div>,
     sortType: "basic",
   },
   {
     Header: "Type",
-    accessor: "asset_type",
+    accessor: "type",
   },
   {
     Header: "Price",
@@ -52,7 +62,7 @@ export const POSITIONS_TABLE_COLS = [
   },
   {
     Header: "Value",
-    accessor: "position_value",
+    accessor: "value",
     Cell: (props) => <div> {formatAsCurrency(props.value)}</div>,
     sortType: "basic",
   },
@@ -65,11 +75,11 @@ export const POSITIONS_TABLE_COLS = [
 export const TRADES_TABLE_COLS = [
   {
     Header: "Trade ID",
-    accessor: "trade_id",
+    accessor: "tradeId",
   },
   {
     Header: "Asset ID",
-    accessor: "asset_id",
+    accessor: "assetId",
   },
   {
     Header: "Ticker",
@@ -77,11 +87,11 @@ export const TRADES_TABLE_COLS = [
   },
   {
     Header: "Type",
-    accessor: "trade_type",
+    accessor: "type",
   },
   {
     Header: "# of Shares",
-    accessor: "num_of_shares",
+    accessor: "numShares",
     Cell: (props) => <div> {formatAsAmount(props.value)}</div>,
     sortType: "basic",
   },
@@ -93,17 +103,17 @@ export const TRADES_TABLE_COLS = [
   },
   {
     Header: "Total Price",
-    accessor: "tot_price",
+    accessor: "total_price",
     Cell: (props) => <div> {formatAsCurrency(props.value)}</div>,
     sortType: "basic",
   },
   {
     Header: "Status",
-    accessor: "trade_status",
+    accessor: "status",
   },
   {
     Header: "Trade Time",
-    accessor: "trade_time",
+    accessor: "time",
   },
 ];
 
@@ -158,13 +168,3 @@ export const RISK_THROUGHTIME_GVT_OPTIONS = [
   { value: 10, label: "Ex-Ante Contribution to Risk", disabled: true },
   { value: 11, label: "Realized Contribution to Risk", disabled: true },
 ];
-
-/* Custom theme for React Select */
-export const CUSTOM_SELECT_THEME = (theme) => ({
-  ...theme,
-  colors: {
-    ...theme.colors,
-    primary25: COLORS.silver,
-    primary: COLORS.navy,
-  },
-});

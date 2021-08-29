@@ -11,18 +11,21 @@ import {
   RightCol,
 } from "../../components/SharedStyles";
 import { PositionsSubNavbar } from "../../components/nav/SubNavbars";
+import { useBanner } from "../../utils/BannerContext";
+import { POSITIONS } from "../../assets/data";
 
 const PositionsSnapshot = () => {
-  const [errorMsg, setErrorMsg] = useState(null);
-  const [apiPositions, setApiPositions] = useState([]);
+  const [positions, setPositions] = useState(POSITIONS);
   const [date, setDate] = useState(getDateStr(-1));
   const [graphVT, setGraphVT] = useState(0);
   const [showGraphics, setShowGraphics] = useState(false);
 
+  const { clearMsg } = useBanner();
+
   /* Get api data for positions on a single date */
   useEffect(() => {
-    setErrorMsg(null);
-    setApiPositions([]);
+    clearMsg();
+    setPositions([]);
     setShowGraphics(true);
 
     // axios
@@ -53,7 +56,6 @@ const PositionsSnapshot = () => {
   return (
     <>
       <PositionsSubNavbar />
-      {/* <MsgBanner msg={errorMsg} setMsg={(value) => setErrorMsg(value)} /> */}
       <Content>
         <PositionsSnapshotMenu
           date={date}
@@ -64,7 +66,7 @@ const PositionsSnapshot = () => {
           <SnapshotTwoColWrapper>
             <LeftCol>
               <SortableTable
-                tableData={apiPositions}
+                tableData={positions}
                 tableColumns={POSITIONS_TABLE_COLS}
                 initialSort="date"
               />
@@ -73,8 +75,8 @@ const PositionsSnapshot = () => {
             <RightCol>
               {graphVT === 0 && (
                 <PositionsBarChart
-                  tickerData={apiPositions.map(({ ticker }) => ticker)}
-                  valuesData={apiPositions.map(
+                  tickerData={positions.map(({ ticker }) => ticker)}
+                  valuesData={positions.map(
                     ({ position_value }) => position_value
                   )}
                   x_label={"Position Value (USD)"}
@@ -85,9 +87,9 @@ const PositionsSnapshot = () => {
               )}
               {graphVT === 1 && (
                 <PositionsBarChart
-                  tickerData={apiPositions.map(({ ticker }) => ticker)}
+                  tickerData={positions.map(({ ticker }) => ticker)}
                   valuesData={convertToPercentage(
-                    apiPositions.map(({ position_value }) => position_value)
+                    positions.map(({ position_value }) => position_value)
                   )}
                   x_label={"Percent of Portfolio"}
                   tool_tip_label={"Percent"}
