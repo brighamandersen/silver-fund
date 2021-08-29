@@ -26,16 +26,14 @@ const PositionsSnapshot = () => {
     setPositions([]);
     setShowGraphics(true);
 
-    console.log("ran");
-
-    const filteredPositions = positions.filter((p) => p.date === date);
+    const filteredPositions = POSITIONS.filter((p) => p.date === date);
 
     if (filteredPositions.length === 0) {
       setShowGraphics(false);
       emitErrorMsg(
         "No positions exist on the date selected.  Try a different selection."
       );
-      // return;
+      return;
     }
 
     setPositions(filteredPositions);
