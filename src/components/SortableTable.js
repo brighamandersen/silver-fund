@@ -1,7 +1,18 @@
 import React from "react";
 import { useTable, useSortBy } from "react-table";
-
+import styled from "styled-components";
 import LoadingSpinner from "./LoadingSpinner";
+
+const TH = styled.th`
+  &:hover {
+    background: #3f5f80;
+  }
+`;
+
+const SortArrow = styled.span`
+  padding-left: 10px;
+  float: right;
+`;
 
 const SortableTable = (props) => {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
@@ -24,25 +35,18 @@ const SortableTable = (props) => {
             {headerGroups.map((headerGroup) => (
               <tr {...headerGroup.getHeaderGroupProps()}>
                 {headerGroup.headers.map((column) => (
-                  <th
-                    className="sortable-table-col"
-                    {...column.getHeaderProps(column.getSortByToggleProps())}
-                  >
+                  <TH {...column.getHeaderProps(column.getSortByToggleProps())}>
                     {column.render("Header")}
                     <span>
                       {column.isSorted ? (
                         column.isSortedDesc ? (
-                          <span style={{ paddingLeft: "10px", float: "right" }}>
-                            ▼
-                          </span>
+                          <SortArrow>▼</SortArrow>
                         ) : (
-                          <span style={{ paddingLeft: "10px", float: "right" }}>
-                            ▲
-                          </span>
+                          <SortArrow>▲</SortArrow>
                         )
                       ) : null}
                     </span>
-                  </th>
+                  </TH>
                 ))}
               </tr>
             ))}

@@ -87,10 +87,6 @@ const GlobalStyles = createGlobalStyle`
     background-color: ${COLORS.white};
   }
 
-  .sortable-table-col:hover {
-    background-color: #3f5f80;
-  }
-
   .delete-table-row-btn:hover {
     background-color: #970000;
   }

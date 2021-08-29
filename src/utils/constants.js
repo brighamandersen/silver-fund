@@ -20,6 +20,8 @@ export const COLORS = {
 
 export const CORNER_ROUNDING = "15px";
 
+export const DEFAULT_DATE = "2021-01-01";
+
 /* Custom theme for React Select */
 export const CUSTOM_SELECT_THEME = (theme) => ({
   ...theme,

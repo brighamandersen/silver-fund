@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { getDateStr } from "../utils/helpers";
 import { InlineDescriptionLabel, DateInput } from "./SharedStyles";
 
 const Wrapper = styled.div`
@@ -11,11 +10,7 @@ const Wrapper = styled.div`
 const DateSingler = ({ date, setDate }) => (
   <Wrapper>
     <InlineDescriptionLabel>Date:</InlineDescriptionLabel>
-    <DateInput
-      value={date}
-      max={getDateStr(0)}
-      onChange={(e) => setDate(e.target.value)}
-    />
+    <DateInput value={date} onChange={(e) => setDate(e.target.value)} />
   </Wrapper>
 );
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { POSITIONS_TABLE_COLS } from "../../utils/constants";
-import { getDateStr, convertToPercentage } from "../../utils/helpers";
+import { DEFAULT_DATE, POSITIONS_TABLE_COLS } from "../../utils/constants";
+import { convertToPercentage } from "../../utils/helpers";
 import SortableTable from "../../components/SortableTable";
 import PositionsSnapshotMenu from "../../components/positions/PositionsSnapshotMenu";
 import PositionsBarChart from "../../components/positions/PositionsBarChart";
@@ -15,7 +15,7 @@ import { POSITIONS } from "../../assets/data";
 
 const PositionsSnapshot = () => {
   const [positions, setPositions] = useState(POSITIONS);
-  const [date, setDate] = useState(getDateStr(-1));
+  const [date, setDate] = useState(DEFAULT_DATE);
   const [graphVT, setGraphVT] = useState(0);
   const [showGraphics, setShowGraphics] = useState(false);
 
@@ -34,7 +34,10 @@ const PositionsSnapshot = () => {
       emitErrorMsg(
         "No positions exist on the date selected.  Try a different selection."
       );
+      return;
     }
+
+    setPositions(filteredPositions);
 
     // axios
     //   .get("api/positions/filter/date/", {
