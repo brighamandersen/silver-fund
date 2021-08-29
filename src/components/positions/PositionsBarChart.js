@@ -117,7 +117,11 @@ PositionsBarChart.propTypes = {
   valuesData: PropTypes.arrayOf(PropTypes.number).isRequired,
   xLabel: PropTypes.string.isRequired,
   tooltipLabel: PropTypes.string.isRequired,
-  isCurrency: PropTypes.bool.isRequired,
+  isCurrency: PropTypes.bool,
+};
+
+PositionsBarChart.defaultProps = {
+  isCurrency: false,
 };
 
 export default PositionsBarChart;

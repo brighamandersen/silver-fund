@@ -77,7 +77,6 @@ const PositionsSnapshot = () => {
                 )}
                 xLabel={"Percent of Portfolio"}
                 tooltipLabel={"Percent"}
-                isCurrency={false}
               />
             )}
           </RightCol>
