@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import {
-  DEFAULT_DATE,
+  DEFAULT_START_DATE,
   POSITIONS_GVT_OPTIONS,
   POSITIONS_TABLE_COLS,
 } from "../../utils/constants";
@@ -20,7 +20,7 @@ import GraphViewType from "../../components/GraphViewType";
 
 const PositionsSnapshot = () => {
   const [positions, setPositions] = useState(POSITIONS);
-  const [date, setDate] = useState(DEFAULT_DATE);
+  const [date, setDate] = useState(DEFAULT_START_DATE);
   const [graphVT, setGraphVT] = useState(0);
   const [showGraphics, setShowGraphics] = useState(false);
 

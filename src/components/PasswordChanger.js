@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import passwordIcon from "../../assets/lock.png";
-import { useBanner } from "../../utils/BannerContext";
-import { COLORS } from "../../utils/constants";
+import passwordIcon from "../assets/lock.png";
+import { useBanner } from "../utils/BannerContext";
+import { COLORS } from "../utils/constants";
 
 const Wrapper = styled.div`
   margin-top: 3rem;

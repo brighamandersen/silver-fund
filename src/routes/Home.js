@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import sfLogo from "../assets/sf-logo-white.png";
-import PasswordChanger from "../components/home/PasswordChanger";
+import PasswordChanger from "../components/PasswordChanger";
 import { Content, LeftCol } from "../components/SharedStyles";
 import { useAuth } from "../utils/AuthContext";
 

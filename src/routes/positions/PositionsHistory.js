@@ -1,20 +1,35 @@
 import React, { useState, useEffect } from "react";
-import { POSITIONS_TABLE_COLS } from "../../utils/constants";
+import {
+  DEFAULT_END_DATE,
+  DEFAULT_START_DATE,
+  POSITIONS_GVT_OPTIONS,
+  POSITIONS_TABLE_COLS,
+} from "../../utils/constants";
 import {
   getDateStr,
   getDateStr3MonthsBack,
   formatTimeSeries,
 } from "../../utils/helpers";
-import PositionsHistoryMenu from "../../components/positions/PositionsHistoryMenu";
 import PositionsTimeSeries from "../../components/positions/PositionsTimeSeries";
 import SortableTable from "../../components/SortableTable";
 import { Content } from "../../components/SharedStyles";
+import styled from "styled-components";
+import DateRanger from "../../components/DateRanger";
+import TickerSelector from "../../components/TickerSelector";
+import GraphViewType from "../../components/GraphViewType";
+
+const MenuWrapper = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  align-items: center;
+`;
 
 const PositionsHistory = () => {
   const [errorMsg, setErrorMsg] = useState(null);
   const [apiPositions, setApiPositions] = useState([]);
-  const [start, setStart] = useState(getDateStr3MonthsBack());
-  const [end, setEnd] = useState(getDateStr(-1));
+  const [start, setStart] = useState(DEFAULT_START_DATE);
+  const [end, setEnd] = useState(DEFAULT_END_DATE);
   const [selectedPositions, setSelectedPositions] = useState([]);
   const [graphVT, setGraphVT] = useState(0);
   const [showGraphics, setShowGraphics] = useState(false);
@@ -58,9 +73,37 @@ const PositionsHistory = () => {
     //   });
   }, [start, end]);
 
+  const SubMenu = () => (
+    <>
+      <MenuWrapper>
+        <div>
+          <DateRanger
+            start={start}
+            end={end}
+            setStart={setStart}
+            setEnd={setEnd}
+          />
+        </div>
+        <div>
+          <TickerSelector
+            optionsData={apiPositions}
+            onSubmit={(newValue) => setSelectedPositions(newValue)}
+          />
+        </div>
+        <div>
+          <GraphViewType
+            dropdownOptions={POSITIONS_GVT_OPTIONS}
+            setGraphVT={setGraphVT}
+          />
+        </div>
+      </MenuWrapper>
+      <hr />
+    </>
+  );
+
   return (
     <Content>
-      <PositionsHistoryMenu
+      {/* <PositionsHistoryMenu
         start={start}
         setStart={(value) => setStart(value)}
         end={end}
@@ -68,7 +111,8 @@ const PositionsHistory = () => {
         setGraphVT={(value) => setGraphVT(value)}
         apiPositions={apiPositions}
         setSelectedPositions={(value) => setSelectedPositions(value)}
-      />
+      /> */}
+      <SubMenu />
       <div className="m-2">
         {showGraphics && graphVT === 0 && (
           <PositionsTimeSeries
