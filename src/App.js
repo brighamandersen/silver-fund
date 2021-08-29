@@ -1,4 +1,3 @@
-// import "./styles.css";
 import React from "react";
 import {
   BrowserRouter as Router,
@@ -17,11 +16,10 @@ import PositionsSnapshot from "./routes/positions/PositionsSnapshot";
 import PositionsHistory from "./routes/positions/PositionsHistory";
 import Trades from "./routes/Trades";
 import Construction from "./routes/Construction";
-import Risk from "./routes/risk/Risk";
-import NotFound from "./routes/NotFound";
 import RiskSnapshot from "./routes/risk/RiskSnapshot";
 import RiskThroughTime from "./routes/risk/RiskThroughTime";
 import RiskWhatIf from "./routes/risk/RiskWhatIf";
+import NotFound from "./routes/NotFound";
 
 const App = () => (
   <>

@@ -9,21 +9,21 @@ const LocalWrapper = styled.div`
   margin: 10px;
 `;
 
-const DateRanger = (props) => (
+const DateRanger = ({ start, setStart, end, setEnd }) => (
   <LocalWrapper>
     <InlineDescriptionLabel>Start Date:</InlineDescriptionLabel>
     <DateInput
-      value={props.start}
+      value={start}
       max={getDateStr(0)}
-      onChange={(e) => props.setStart(e.target.value)}
+      onChange={(e) => setStart(e.target.value)}
     />
     <br />
     <br />
     <InlineDescriptionLabel>End Date:</InlineDescriptionLabel>
     <DateInput
-      value={props.end}
+      value={end}
       max={getDateStr(0)}
-      onChange={(e) => props.setEnd(e.target.value)}
+      onChange={(e) => setEnd(e.target.value)}
     />
   </LocalWrapper>
 );

@@ -1,5 +1,5 @@
 import React from "react";
-import byuLogoText from "../media/byu-logo-text.png";
+import byuLogoText from "../assets/byu-logo-text.png";
 import { useAuth } from "../utils/AuthContext";
 import { useBanner } from "../utils/BannerContext";
 

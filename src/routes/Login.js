@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
 import styled from "styled-components";
 import { Content } from "../components/SharedStyles";
-import sfLogo from "../media/sf-logo-white.png";
-import usernameIcon from "../media/user.png";
-import passwordIcon from "../media/lock.png";
+import sfLogo from "../assets/sf-logo-white.png";
+import usernameIcon from "../assets/user.png";
+import passwordIcon from "../assets/lock.png";
 import { useAuth } from "../utils/AuthContext";
 import { COLORS, CORNER_ROUNDING } from "../utils/constants";
 import { useBanner } from "../utils/BannerContext";

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
-import passwordIcon from "../../media/lock.png";
+import passwordIcon from "../../assets/lock.png";
 import { useBanner } from "../../utils/BannerContext";
 import { COLORS } from "../../utils/constants";
 
