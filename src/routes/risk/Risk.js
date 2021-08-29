@@ -11,8 +11,8 @@ const Risk = () => (
   <>
     <RiskSubNavbar />
     <Route exact path="/risk/snapshot" component={RiskSnapshot} />
-    <Route exact path="/risk/throughtime" component={RiskThroughTime} />
-    <Route exact path="/risk/whatif" component={RiskWhatIf} />
+    <Route exact path="/risk/through-time" component={RiskThroughTime} />
+    <Route exact path="/risk/what-if" component={RiskWhatIf} />
     {/* Default Active */}
     <Route exact path="/risk">
       <Redirect to="/risk/snapshot" />

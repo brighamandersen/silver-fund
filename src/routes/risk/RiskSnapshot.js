@@ -11,6 +11,7 @@ import {
   RightCol,
 } from "../../components/SharedStyles";
 import RiskSnapshotMenu from "../../components/risk/RiskSnapshotMenu";
+import { RiskSubNavbar } from "../../components/nav/SubNavbars";
 
 const RiskSnapshot = () => {
   const [errorMsg, setErrorMsg] = useState(null);
@@ -91,6 +92,7 @@ const RiskSnapshot = () => {
   return (
     <>
       {/* <MsgBanner msg={errorMsg} setMsg={(value) => setErrorMsg(value)} /> */}
+      <RiskSubNavbar />
       <Content>
         <RiskSnapshotMenu
           date={date}

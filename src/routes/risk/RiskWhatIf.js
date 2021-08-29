@@ -10,14 +10,16 @@ import {
 import RiskVTRadio from "../../components/risk/RiskVTRadio";
 import RiskWhatIfStocksTable from "../../components/risk/RiskWhatIfStocksTable";
 import RiskWhatIfStatsTable from "../../components/risk/RiskWhatIfStatsTable";
+import { RiskSubNavbar } from "../../components/nav/SubNavbars";
 
-const RiskWhatIfAnalysis = () => {
+const RiskWhatIf = () => {
   const [errorMsg, setErrorMsg] = useState(null);
   const [riskVT, setRiskVT] = useState("total");
 
   return (
     <>
       {/* <MsgBanner msg={errorMsg} setMsg={(value) => setErrorMsg(value)} /> */}
+      <RiskSubNavbar />
       <Content>
         <TwoColWrapper>
           <LeftCol>
@@ -39,4 +41,4 @@ const RiskWhatIfAnalysis = () => {
   );
 };
 
-export default RiskWhatIfAnalysis;
+export default RiskWhatIf;

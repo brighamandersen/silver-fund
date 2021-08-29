@@ -9,6 +9,7 @@ import PositionsHistoryMenu from "../../components/positions/PositionsHistoryMen
 import PositionsTimeSeries from "../../components/positions/PositionsTimeSeries";
 import SortableTable from "../../components/SortableTable";
 import { Content } from "../../components/SharedStyles";
+import { PositionsSubNavbar } from "../../components/nav/SubNavbars";
 
 const PositionsHistory = () => {
   const [errorMsg, setErrorMsg] = useState(null);
@@ -61,6 +62,7 @@ const PositionsHistory = () => {
   return (
     <>
       {/* <MsgBanner msg={errorMsg} setMsg={(value) => setErrorMsg(value)} /> */}
+      <PositionsSubNavbar />
       <Content>
         <PositionsHistoryMenu
           start={start}

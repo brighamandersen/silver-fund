@@ -19,7 +19,7 @@ export const PositionsSubNavbar = () => (
 export const RiskSubNavbar = () => (
   <SubBar>
     <NavTab to="/risk/snapshot">Portfolio Snapshot</NavTab>
-    <NavTab to="/risk/throughtime">Portfolio Risk Through Time</NavTab>
-    <NavTab to="/risk/whatif">What-If Analysis</NavTab>
+    <NavTab to="/risk/through-time">Portfolio Risk Through Time</NavTab>
+    <NavTab to="/risk/what-if">What-If Analysis</NavTab>
   </SubBar>
 );

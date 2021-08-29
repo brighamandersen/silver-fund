@@ -10,6 +10,7 @@ import {
   LeftCol,
   RightCol,
 } from "../../components/SharedStyles";
+import { PositionsSubNavbar } from "../../components/nav/SubNavbars";
 
 const PositionsSnapshot = () => {
   const [errorMsg, setErrorMsg] = useState(null);
@@ -51,6 +52,7 @@ const PositionsSnapshot = () => {
 
   return (
     <>
+      <PositionsSubNavbar />
       {/* <MsgBanner msg={errorMsg} setMsg={(value) => setErrorMsg(value)} /> */}
       <Content>
         <PositionsSnapshotMenu
