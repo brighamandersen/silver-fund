@@ -87,6 +87,7 @@ const GlobalStyles = createGlobalStyle`
     background-color: ${COLORS.white};
   }
 
+
   .delete-table-row-btn:hover {
     background-color: #970000;
   }
