@@ -14,6 +14,7 @@ export const COLORS = {
   clear: "transparent",
   lightHover: "rgba(0,0,0,0.05)",
   blackHover: "#363636",
+  fadeNavy: "#3f5f80",
   errorRed: "#e53935",
   successGreen: "#0fb56d",
 };

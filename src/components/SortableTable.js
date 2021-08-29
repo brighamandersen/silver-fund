@@ -3,10 +3,11 @@ import PropTypes from "prop-types";
 import { useTable, useSortBy } from "react-table";
 import styled from "styled-components";
 import LoadingSpinner from "./LoadingSpinner";
+import { COLORS } from "../utils/constants";
 
 const TH = styled.th`
   &:hover {
-    background: #3f5f80;
+    background: ${COLORS.fadeNavy};
   }
 `;
 

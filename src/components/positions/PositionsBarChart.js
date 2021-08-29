@@ -28,7 +28,7 @@ const PositionsBarChart = (props) => {
                 {
                   label: tooltipLabel,
                   data: valuesData,
-                  backgroundColor: "#3f5f80",
+                  backgroundColor: COLORS.fadeNavy,
                   barPercentage: 0.5,
                   hoverBackgroundColor: COLORS.navy,
                 },
