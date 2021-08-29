@@ -56,7 +56,7 @@ const PositionsHistory = () => {
     //       "Uh oh! Something went wrong on our end (failed to load positions data).  If this error persists, contact support."
     //     );
     //   });
-  }, [start, end]); //  Calls the API to fetch data at first, whenever start or end date change.
+  }, [start, end]);
 
   return (
     <Content>
@@ -101,7 +101,6 @@ const PositionsHistory = () => {
         <SortableTable
           tableData={selectedPositions}
           tableColumns={POSITIONS_TABLE_COLS}
-          initialSort="date"
         />
       )}
     </Content>

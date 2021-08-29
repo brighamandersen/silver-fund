@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import { useTable, useSortBy } from "react-table";
 import styled from "styled-components";
 import LoadingSpinner from "./LoadingSpinner";
@@ -71,6 +72,16 @@ const SortableTable = (props) => {
       )}
     </div>
   );
+};
+
+SortableTable.propTypes = {
+  tableData: PropTypes.array.isRequired,
+  tableColumns: PropTypes.arrayOf(PropTypes.shape(PropTypes.string)).isRequired,
+  initialSort: PropTypes.string,
+};
+
+SortableTable.defaultProps = {
+  initialSort: "date",
 };
 
 export default SortableTable;

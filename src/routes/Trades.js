@@ -75,7 +75,7 @@ const Trades = () => {
         <SortableTable
           tableData={selectedTrades}
           tableColumns={TRADES_TABLE_COLS}
-          initialSort="trade_time"
+          initialSort="time"
         />
       )}
     </Content>

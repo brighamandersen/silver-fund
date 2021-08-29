@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from "react";
-import { DEFAULT_DATE, POSITIONS_TABLE_COLS } from "../../utils/constants";
+import {
+  DEFAULT_DATE,
+  POSITIONS_GVT_OPTIONS,
+  POSITIONS_TABLE_COLS,
+} from "../../utils/constants";
 import { convertToPercentage } from "../../utils/helpers";
 import SortableTable from "../../components/SortableTable";
-import PositionsSnapshotMenu from "../../components/positions/PositionsSnapshotMenu";
 import PositionsBarChart from "../../components/positions/PositionsBarChart";
 import {
   Content,
@@ -12,6 +15,8 @@ import {
 } from "../../components/SharedStyles";
 import { useBanner } from "../../utils/BannerContext";
 import { POSITIONS } from "../../assets/positions";
+import DateSingler from "../../components/DateSingler";
+import GraphViewType from "../../components/GraphViewType";
 
 const PositionsSnapshot = () => {
   const [positions, setPositions] = useState(POSITIONS);
@@ -40,20 +45,30 @@ const PositionsSnapshot = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [date, graphVT]);
 
+  const SubMenu = () => (
+    <>
+      <div className="d-inline-block">
+        <DateSingler date={date} setDate={setDate} />
+      </div>
+      <div className="float-right">
+        <GraphViewType
+          dropdownOptions={POSITIONS_GVT_OPTIONS}
+          setGraphVT={setGraphVT}
+        />
+      </div>
+      <hr />
+    </>
+  );
+
   return (
     <Content>
-      <PositionsSnapshotMenu
-        date={date}
-        setDate={setDate}
-        setGraphVT={(value) => setGraphVT(value)}
-      />
+      <SubMenu />
       {showGraphics && (
         <SnapshotTwoColWrapper>
           <LeftCol>
             <SortableTable
               tableData={positions}
               tableColumns={POSITIONS_TABLE_COLS}
-              initialSort="date"
             />
             <br />
           </LeftCol>
