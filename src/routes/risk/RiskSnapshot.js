@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { getDateStr } from "../../utils/helpers";
 import RiskSnapshotTable from "../../components/risk/RiskSnapshotTable";
 import RiskBarChart from "../../components/risk/RiskBarChart";
-import { RISK_SNAPSHOT_GVT_OPTIONS } from "../../utils/constants";
+import {
+  DEFAULT_START_DATE,
+  RISK_SNAPSHOT_GVT_OPTIONS,
+} from "../../utils/constants";
 import {
   Content,
   SnapshotTwoColWrapper,
@@ -18,7 +20,7 @@ const RiskSnapshot = () => {
   const [riskSnapshot, setRiskSnapshot] = useState([]);
   const [graphVT, setGraphVT] = useState(0);
   const [riskVT, setRiskVT] = useState("total");
-  const [date, setDate] = useState(getDateStr(-1));
+  const [date, setDate] = useState(DEFAULT_START_DATE);
   const [showGraphics, setShowGraphics] = useState(false);
 
   useEffect(() => {

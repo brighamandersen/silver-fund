@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import {
-  getDateStr,
-  getDateStr3MonthsBack,
-  formatRiskTimeSeries,
-} from "../../utils/helpers";
+import { formatRiskTimeSeries } from "../../utils/helpers";
 import { Content } from "../../components/SharedStyles";
 import RiskThroughTimeMenu from "../../components/risk/RiskThroughTimeMenu";
 import RiskTimerSeries from "../../components/risk/RiskTimeSeries";
-import { RISK_THROUGHTIME_GVT_OPTIONS } from "../../utils/constants";
+import {
+  DEFAULT_END_DATE,
+  DEFAULT_START_DATE,
+  RISK_THROUGHTIME_GVT_OPTIONS,
+} from "../../utils/constants";
 
 const RiskThroughTime = () => {
   const [errorMsg, setErrorMsg] = useState(null);
@@ -15,8 +15,8 @@ const RiskThroughTime = () => {
   const [riskVT, setRiskVT] = useState("total");
   const [unitType, setUnitType] = useState("portfolio");
   const [aggrType, setAggrType] = useState("");
-  const [start, setStart] = useState(getDateStr3MonthsBack());
-  const [end, setEnd] = useState(getDateStr(-1));
+  const [start, setStart] = useState(DEFAULT_START_DATE);
+  const [end, setEnd] = useState(DEFAULT_END_DATE);
   const [graphData, setGraphData] = useState([]);
   const [vTOptions, setVTOptions] = useState(RISK_THROUGHTIME_GVT_OPTIONS);
 

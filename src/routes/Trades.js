@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from "react";
 
-import { TRADES_TABLE_COLS } from "../utils/constants";
-import { getDateStr } from "../utils/helpers";
+import {
+  DEFAULT_END_DATE,
+  DEFAULT_START_DATE,
+  TRADES_TABLE_COLS,
+} from "../utils/constants";
 import DateRanger from "../components/DateRanger";
 import TickerSelector from "../components/TickerSelector";
 import SortableTable from "../components/SortableTable";
@@ -9,8 +12,8 @@ import { Content } from "../components/SharedStyles";
 
 const Trades = () => {
   const [errorMsg, setErrorMsg] = useState(null);
-  const [start, setStart] = useState("2020-01-01");
-  const [end, setEnd] = useState(getDateStr(-1));
+  const [start, setStart] = useState(DEFAULT_START_DATE);
+  const [end, setEnd] = useState(DEFAULT_END_DATE);
   const [apiTrades, setApiTrades] = useState([]);
   const [selectedTrades, setSelectedTrades] = useState([]);
   const [showTable, setShowTable] = useState(false);

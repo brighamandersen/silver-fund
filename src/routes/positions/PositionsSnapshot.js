@@ -28,8 +28,8 @@ const PositionsSnapshot = () => {
 
   useEffect(() => {
     clearMsg();
-    setPositions([]);
     setShowGraphics(true);
+    setPositions([]);
 
     const filteredPositions = POSITIONS.filter((p) => p.date === date);
 

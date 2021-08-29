@@ -22,40 +22,6 @@ export const getPaperStats = () => {
   return tempArrObj;
 };
 
-/* 
-Input: An integer (positive or negative) that represents how many days away a specific day is from today (ex: yesterday = -1)
-Output: A "YYYY-MM-DD" date string (ex: "2020-01-01")
-*/
-export const getDateStr = (daysAway) => {
-  const newDate = new Date();
-
-  newDate.setDate(newDate.getDate() + daysAway);
-
-  const newDateStr =
-    newDate.getFullYear() +
-    "-" +
-    ("0" + (newDate.getMonth() + 1)).slice(-2) +
-    "-" +
-    ("0" + newDate.getDate()).slice(-2);
-  return newDateStr;
-};
-/*
-Returns back a "YYYY-MM-DD" string (ex: "2020-01-01:") that is 3 months since yesterday.
-*/
-export const getDateStr3MonthsBack = () => {
-  const newDate = new Date();
-  newDate.setMonth(newDate.getMonth() - 3);
-  newDate.setDate(newDate.getDate() - 1);
-
-  const newDateStr =
-    newDate.getFullYear() +
-    "-" +
-    ("0" + (newDate.getMonth() + 1)).slice(-2) +
-    "-" +
-    ("0" + newDate.getDate()).slice(-2);
-  return newDateStr;
-};
-
 export const formatAsAmount = (value) =>
   value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 
@@ -143,7 +109,7 @@ export const formatTimeSeries = (
   if (weight === true) {
     for (let k = 0; k < labels.length; ++k) {
       curr = chartData.filter((item) => item.date === labels[k]);
-      curr = curr.map(({ position_value }) => position_value);
+      curr = curr.map(({ value }) => value);
       if (curr.length === 0) {
         weights.push(1);
       } else {
@@ -170,11 +136,9 @@ export const formatTimeSeries = (
         asset.data.push(0);
       } else {
         if (weight === true) {
-          asset.data.push(
-            ((100 * value[0].position_value) / weights[j]).toFixed(2)
-          );
+          asset.data.push(((100 * value[0].value) / weights[j]).toFixed(2));
         } else {
-          asset.data.push(value[0].position_value.toFixed(2));
+          asset.data.push(value[0].value.toFixed(2));
         }
       }
     }
