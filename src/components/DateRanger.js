@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 import { InlineDescriptionLabel, DateInput } from "./SharedStyles";
 
 const LocalWrapper = styled.div`
@@ -18,5 +19,12 @@ const DateRanger = ({ start, setStart, end, setEnd }) => (
     <DateInput value={end} onChange={(e) => setEnd(e.target.value)} />
   </LocalWrapper>
 );
+
+DateRanger.propTypes = {
+  start: PropTypes.string.isRequired,
+  setStart: PropTypes.func.isRequired,
+  end: PropTypes.string.isRequired,
+  setEnd: PropTypes.func.isRequired,
+};
 
 export default DateRanger;

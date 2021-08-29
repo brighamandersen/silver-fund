@@ -21,10 +21,9 @@ const PositionsSnapshot = () => {
 
   const { emitErrorMsg, clearMsg } = useBanner();
 
-  /* Get api data for positions on a single date */
   useEffect(() => {
     clearMsg();
-    // setPositions([]);
+    setPositions([]);
     setShowGraphics(true);
 
     const filteredPositions = positions.filter((p) => p.date === date);
@@ -38,31 +37,7 @@ const PositionsSnapshot = () => {
     }
 
     setPositions(filteredPositions);
-
-    // axios
-    //   .get("api/positions/filter/date/", {
-    //     params: {
-    //       start: date,
-    //     },
-    //   })
-    //   .then((response) => {
-    //     console.log("Positions on " + date, response.data);
-    //     if (response.data.length === 0) {
-    //       setShowGraphics(false);
-    //       setErrorMsg(
-    //         "No positions exist on the date selected.  Try a different selection."
-    //       );
-    //     }
-    //     setApiPositions(response.data);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //     setShowGraphics(false);
-    //     setErrorMsg(
-    //       "Uh oh! Something went wrong on our end (failed to load positions data).  If this error persists, contact support."
-    //     );
-    //   });
-  }, [date, graphVT]); // Calls the API to fetch data at first, whenever date changes.
+  }, [date, graphVT]);
 
   return (
     <Content>
@@ -85,11 +60,9 @@ const PositionsSnapshot = () => {
             {graphVT === 0 && (
               <PositionsBarChart
                 tickerData={positions.map(({ ticker }) => ticker)}
-                valuesData={positions.map(
-                  ({ position_value }) => position_value
-                )}
-                x_label={"Position Value (USD)"}
-                tool_tip_label={"Value"}
+                valuesData={positions.map(({ value }) => value)}
+                xLabel={"Position Value (USD)"}
+                tooltipLabel={"Value"}
                 isCurrency
                 buffer={5000}
               />
@@ -98,10 +71,10 @@ const PositionsSnapshot = () => {
               <PositionsBarChart
                 tickerData={positions.map(({ ticker }) => ticker)}
                 valuesData={convertToPercentage(
-                  positions.map(({ position_value }) => position_value)
+                  positions.map(({ value }) => value)
                 )}
-                x_label={"Percent of Portfolio"}
-                tool_tip_label={"Percent"}
+                xLabel={"Percent of Portfolio"}
+                tooltipLabel={"Percent"}
                 isCurrency={false}
                 buffer={10}
               />
