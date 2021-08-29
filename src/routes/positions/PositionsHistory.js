@@ -40,7 +40,7 @@ const PositionsHistory = () => {
 
     if (end < start) {
       setShowGraphics(false);
-      emitErrorMsg("Warning: Start date isn't before end date.");
+      emitErrorMsg("Start date must be before end date.");
       return;
     }
 
