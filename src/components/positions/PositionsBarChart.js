@@ -15,8 +15,7 @@ const Wrapper = styled.div`
 `;
 
 const PositionsBarChart = (props) => {
-  const { tickerData, valuesData, xLabel, tooltipLabel, isCurrency, buffer } =
-    props;
+  const { tickerData, valuesData, xLabel, tooltipLabel, isCurrency } = props;
 
   return (
     <>
@@ -119,7 +118,6 @@ PositionsBarChart.propTypes = {
   xLabel: PropTypes.string.isRequired,
   tooltipLabel: PropTypes.string.isRequired,
   isCurrency: PropTypes.bool.isRequired,
-  buffer: PropTypes.number.isRequired,
 };
 
 export default PositionsBarChart;

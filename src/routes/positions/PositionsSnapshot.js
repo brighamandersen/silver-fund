@@ -11,7 +11,7 @@ import {
   RightCol,
 } from "../../components/SharedStyles";
 import { useBanner } from "../../utils/BannerContext";
-import { POSITIONS } from "../../assets/data";
+import { POSITIONS } from "../../assets/positions";
 
 const PositionsSnapshot = () => {
   const [positions, setPositions] = useState(POSITIONS);
@@ -26,6 +26,8 @@ const PositionsSnapshot = () => {
     setPositions([]);
     setShowGraphics(true);
 
+    console.log("ran");
+
     const filteredPositions = positions.filter((p) => p.date === date);
 
     if (filteredPositions.length === 0) {
@@ -33,10 +35,11 @@ const PositionsSnapshot = () => {
       emitErrorMsg(
         "No positions exist on the date selected.  Try a different selection."
       );
-      return;
+      // return;
     }
 
     setPositions(filteredPositions);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [date, graphVT]);
 
   return (
@@ -64,7 +67,6 @@ const PositionsSnapshot = () => {
                 xLabel={"Position Value (USD)"}
                 tooltipLabel={"Value"}
                 isCurrency
-                buffer={5000}
               />
             )}
             {graphVT === 1 && (
@@ -76,7 +78,6 @@ const PositionsSnapshot = () => {
                 xLabel={"Percent of Portfolio"}
                 tooltipLabel={"Percent"}
                 isCurrency={false}
-                buffer={10}
               />
             )}
           </RightCol>

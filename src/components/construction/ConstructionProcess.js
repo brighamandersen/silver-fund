@@ -1,7 +1,6 @@
 import React from "react";
 
 import { formatAsDecimal } from "../../utils/helpers";
-import axios from "axios";
 
 const ConstructionProcess = (props) => {
   const runPortOpt = () => {
