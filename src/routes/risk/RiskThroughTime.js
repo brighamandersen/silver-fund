@@ -8,7 +8,6 @@ import { Content } from "../../components/SharedStyles";
 import RiskThroughTimeMenu from "../../components/risk/RiskThroughTimeMenu";
 import RiskTimerSeries from "../../components/risk/RiskTimeSeries";
 import { RISK_THROUGHTIME_GVT_OPTIONS } from "../../utils/constants";
-import { RiskSubNavbar } from "../../components/nav/SubNavbars";
 
 const RiskThroughTime = () => {
   const [errorMsg, setErrorMsg] = useState(null);
@@ -82,26 +81,23 @@ const RiskThroughTime = () => {
   }, [graphVT, riskVT, unitType, start, end]);
 
   return (
-    <>
-      <RiskSubNavbar />
-      <Content>
-        <RiskThroughTimeMenu
-          start={start}
-          end={end}
-          setStart={setStart}
-          setEnd={setEnd}
-          riskVT={riskVT}
-          setRiskVT={setRiskVT}
-          unitType={unitType}
-          setUnitType={setUnitType}
-          aggrType={aggrType}
-          setAggrType={setAggrType}
-          setGraphVT={setGraphVT}
-          vTOptions={vTOptions}
-        />
-        <RiskTimerSeries data={graphData} isCurrency={false} />
-      </Content>
-    </>
+    <Content>
+      <RiskThroughTimeMenu
+        start={start}
+        end={end}
+        setStart={setStart}
+        setEnd={setEnd}
+        riskVT={riskVT}
+        setRiskVT={setRiskVT}
+        unitType={unitType}
+        setUnitType={setUnitType}
+        aggrType={aggrType}
+        setAggrType={setAggrType}
+        setGraphVT={setGraphVT}
+        vTOptions={vTOptions}
+      />
+      <RiskTimerSeries data={graphData} isCurrency={false} />
+    </Content>
   );
 };
 

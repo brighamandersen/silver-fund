@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 
 import { TRADES_TABLE_COLS } from "../utils/constants";
 import { getDateStr } from "../utils/helpers";
-// // import MsgBanner from "../components/MsgBanner";
 import DateRanger from "../components/DateRanger";
 import TickerSelector from "../components/TickerSelector";
 import SortableTable from "../components/SortableTable";
@@ -56,33 +55,30 @@ const Trades = () => {
   }, [start, end]); // Calls the API to fetch data at first, and whenever start or end date change.
 
   return (
-    <>
-      {/* <MsgBanner msg={errorMsg} setMsg={(value) => setErrorMsg(value)} /> */}
-      <Content>
-        <div className="d-inline-block">
-          <DateRanger
-            start={start}
-            end={end}
-            setStart={setStart}
-            setEnd={setEnd}
-          />
-        </div>
-        <div className="ticker-selector d-inline-block ml-4">
-          <TickerSelector
-            optionsData={apiTrades}
-            onSubmit={(newValue) => setSelectedTrades(newValue)}
-          />
-        </div>
-        <hr />
-        {showTable && (
-          <SortableTable
-            tableData={selectedTrades}
-            tableColumns={TRADES_TABLE_COLS}
-            initialSort="trade_time"
-          />
-        )}
-      </Content>
-    </>
+    <Content>
+      <div className="d-inline-block">
+        <DateRanger
+          start={start}
+          end={end}
+          setStart={setStart}
+          setEnd={setEnd}
+        />
+      </div>
+      <div className="ticker-selector d-inline-block ml-4">
+        <TickerSelector
+          optionsData={apiTrades}
+          onSubmit={(newValue) => setSelectedTrades(newValue)}
+        />
+      </div>
+      <hr />
+      {showTable && (
+        <SortableTable
+          tableData={selectedTrades}
+          tableColumns={TRADES_TABLE_COLS}
+          initialSort="trade_time"
+        />
+      )}
+    </Content>
   );
 };
 

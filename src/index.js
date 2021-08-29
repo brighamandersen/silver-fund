@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import App from "./App";
 import { AuthProvider } from "./utils/AuthContext";
 import { BannerProvider } from "./utils/BannerContext";
@@ -9,7 +10,9 @@ const AppWithProviders = (
   <AuthProvider>
     <BannerProvider>
       <GlobalStyles />
-      <App />
+      <Router>
+        <App />
+      </Router>
     </BannerProvider>
   </AuthProvider>
 );

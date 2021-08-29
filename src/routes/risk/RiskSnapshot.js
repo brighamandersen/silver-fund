@@ -11,7 +11,6 @@ import {
   RightCol,
 } from "../../components/SharedStyles";
 import RiskSnapshotMenu from "../../components/risk/RiskSnapshotMenu";
-import { RiskSubNavbar } from "../../components/nav/SubNavbars";
 
 const RiskSnapshot = () => {
   const [errorMsg, setErrorMsg] = useState(null);
@@ -90,36 +89,32 @@ const RiskSnapshot = () => {
   }, [date, riskVT, graphVT]);
 
   return (
-    <>
-      {/* <MsgBanner msg={errorMsg} setMsg={(value) => setErrorMsg(value)} /> */}
-      <RiskSubNavbar />
-      <Content>
-        <RiskSnapshotMenu
-          date={date}
-          setDate={setDate}
-          riskVT={riskVT}
-          setRiskVT={setRiskVT}
-          setGraphVT={setGraphVT}
-        />
-        {showGraphics && (
-          // FIXME the bar chart is using random fields for the first three risk till we get the model working
-          <SnapshotTwoColWrapper>
-            <LeftCol>
-              <RiskSnapshotTable tableData={apiSnapshot} />
-            </LeftCol>
-            <RightCol>
-              <RiskBarChart
-                tickerData={riskSnapshot.map(({ ticker }) => ticker)}
-                valuesData={riskSnapshot.map(({ graph_data }) => graph_data)}
-                x_label={RISK_SNAPSHOT_GVT_OPTIONS[parseInt(graphVT)]["label"]}
-                tool_tip_label={"Value"}
-                buffer={5000}
-              />
-            </RightCol>
-          </SnapshotTwoColWrapper>
-        )}
-      </Content>
-    </>
+    <Content>
+      <RiskSnapshotMenu
+        date={date}
+        setDate={setDate}
+        riskVT={riskVT}
+        setRiskVT={setRiskVT}
+        setGraphVT={setGraphVT}
+      />
+      {showGraphics && (
+        // FIXME the bar chart is using random fields for the first three risk till we get the model working
+        <SnapshotTwoColWrapper>
+          <LeftCol>
+            <RiskSnapshotTable tableData={apiSnapshot} />
+          </LeftCol>
+          <RightCol>
+            <RiskBarChart
+              tickerData={riskSnapshot.map(({ ticker }) => ticker)}
+              valuesData={riskSnapshot.map(({ graph_data }) => graph_data)}
+              x_label={RISK_SNAPSHOT_GVT_OPTIONS[parseInt(graphVT)]["label"]}
+              tool_tip_label={"Value"}
+              buffer={5000}
+            />
+          </RightCol>
+        </SnapshotTwoColWrapper>
+      )}
+    </Content>
   );
 };
 

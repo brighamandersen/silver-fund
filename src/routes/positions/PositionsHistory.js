@@ -9,7 +9,6 @@ import PositionsHistoryMenu from "../../components/positions/PositionsHistoryMen
 import PositionsTimeSeries from "../../components/positions/PositionsTimeSeries";
 import SortableTable from "../../components/SortableTable";
 import { Content } from "../../components/SharedStyles";
-import { PositionsSubNavbar } from "../../components/nav/SubNavbars";
 
 const PositionsHistory = () => {
   const [errorMsg, setErrorMsg] = useState(null);
@@ -60,56 +59,52 @@ const PositionsHistory = () => {
   }, [start, end]); //  Calls the API to fetch data at first, whenever start or end date change.
 
   return (
-    <>
-      {/* <MsgBanner msg={errorMsg} setMsg={(value) => setErrorMsg(value)} /> */}
-      <PositionsSubNavbar />
-      <Content>
-        <PositionsHistoryMenu
-          start={start}
-          setStart={(value) => setStart(value)}
-          end={end}
-          setEnd={(value) => setEnd(value)}
-          setGraphVT={(value) => setGraphVT(value)}
-          apiPositions={apiPositions}
-          setSelectedPositions={(value) => setSelectedPositions(value)}
-        />
-        <div className="m-2">
-          {showGraphics && graphVT === 0 && (
-            <PositionsTimeSeries
-              data={formatTimeSeries(
-                selectedPositions,
-                apiPositions,
-                start,
-                end,
-                false
-              )}
-              isCurrency
-            />
-          )}
-          {showGraphics && graphVT === 1 && (
-            <PositionsTimeSeries
-              data={formatTimeSeries(
-                selectedPositions,
-                apiPositions,
-                start,
-                end,
-                true
-              )}
-              apiPositions={selectedPositions}
-              isCurrency={false}
-            />
-          )}
-        </div>
-        <br />
-        {showGraphics && (
-          <SortableTable
-            tableData={selectedPositions}
-            tableColumns={POSITIONS_TABLE_COLS}
-            initialSort="date"
+    <Content>
+      <PositionsHistoryMenu
+        start={start}
+        setStart={(value) => setStart(value)}
+        end={end}
+        setEnd={(value) => setEnd(value)}
+        setGraphVT={(value) => setGraphVT(value)}
+        apiPositions={apiPositions}
+        setSelectedPositions={(value) => setSelectedPositions(value)}
+      />
+      <div className="m-2">
+        {showGraphics && graphVT === 0 && (
+          <PositionsTimeSeries
+            data={formatTimeSeries(
+              selectedPositions,
+              apiPositions,
+              start,
+              end,
+              false
+            )}
+            isCurrency
           />
         )}
-      </Content>
-    </>
+        {showGraphics && graphVT === 1 && (
+          <PositionsTimeSeries
+            data={formatTimeSeries(
+              selectedPositions,
+              apiPositions,
+              start,
+              end,
+              true
+            )}
+            apiPositions={selectedPositions}
+            isCurrency={false}
+          />
+        )}
+      </div>
+      <br />
+      {showGraphics && (
+        <SortableTable
+          tableData={selectedPositions}
+          tableColumns={POSITIONS_TABLE_COLS}
+          initialSort="date"
+        />
+      )}
+    </Content>
   );
 };
 

@@ -1,10 +1,5 @@
-import React from "react";
-import {
-  BrowserRouter as Router,
-  Redirect,
-  Route,
-  Switch,
-} from "react-router-dom";
+import React, { useEffect } from "react";
+import { Redirect, Route, Switch, useLocation } from "react-router-dom";
 import PrivateRoute from "./utils/PrivateRoute";
 import Header from "./components/Header";
 import Navbar from "./components/nav/Navbar";
@@ -20,12 +15,23 @@ import RiskSnapshot from "./routes/risk/RiskSnapshot";
 import RiskThroughTime from "./routes/risk/RiskThroughTime";
 import RiskWhatIf from "./routes/risk/RiskWhatIf";
 import NotFound from "./routes/NotFound";
+import { useBanner } from "./utils/BannerContext";
+import SubNavbar from "./components/nav/SubNavbar";
 
-const App = () => (
-  <>
-    <Header />
-    <Router>
+const App = () => {
+  const location = useLocation();
+  const { clearMsg } = useBanner();
+
+  useEffect(() => {
+    clearMsg(); // When routes are changed, clear msg banner
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [location]);
+
+  return (
+    <>
+      <Header />
       <Navbar />
+      <SubNavbar />
       <MsgBanner />
       <Switch>
         <Route path="/login" component={Login} />
@@ -48,9 +54,9 @@ const App = () => (
         </PrivateRoute>
         <Route path="*" component={NotFound} />
       </Switch>
-    </Router>
-    <Footer />
-  </>
-);
+      <Footer />
+    </>
+  );
+};
 
 export default App;
