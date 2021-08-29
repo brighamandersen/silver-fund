@@ -12,16 +12,6 @@ date (Within 2020-01-01 and 2020-01-31)
 */
 
 export const POSITIONS = [
-  // default
-  {
-    assetId: "",
-    ticker: "",
-    numShares: 0,
-    type: "STK",
-    price: 0,
-    value: 0,
-    date: "2021-01-01",
-  },
   {
     assetId: "13824",
     ticker: "WMT",
