@@ -11,6 +11,7 @@ import SortableTable from "../components/SortableTable";
 import { Content } from "../components/SharedStyles";
 
 const Trades = () => {
+  const [trades, setTrades] = useState();
   const [errorMsg, setErrorMsg] = useState(null);
   const [start, setStart] = useState(DEFAULT_START_DATE);
   const [end, setEnd] = useState(DEFAULT_END_DATE);
