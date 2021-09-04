@@ -11,9 +11,6 @@ import PositionsSnapshot from "./routes/positions/PositionsSnapshot";
 import PositionsHistory from "./routes/positions/PositionsHistory";
 import Trades from "./routes/Trades";
 import Construction from "./routes/Construction";
-import RiskSnapshot from "./routes/risk/RiskSnapshot";
-import RiskThroughTime from "./routes/risk/RiskThroughTime";
-import RiskWhatIf from "./routes/risk/RiskWhatIf";
 import NotFound from "./routes/NotFound";
 import { useBanner } from "./utils/BannerContext";
 import SubNavbar from "./components/nav/SubNavbar";
@@ -46,12 +43,6 @@ const App = () => {
         </PrivateRoute>
         <PrivateRoute path="/trades" component={Trades} />
         <PrivateRoute path="/construction" component={Construction} />
-        <PrivateRoute path="/risk/snapshot" component={RiskSnapshot} />
-        <PrivateRoute path="/risk/through-time" component={RiskThroughTime} />
-        <PrivateRoute path="/risk/what-if" component={RiskWhatIf} />
-        <PrivateRoute exact path="/risk">
-          <Redirect to="/risk/snapshot" />
-        </PrivateRoute>
         <Route path="*" component={NotFound} />
       </Switch>
       <Footer />

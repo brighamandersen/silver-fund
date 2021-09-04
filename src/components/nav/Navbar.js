@@ -21,7 +21,6 @@ const Navbar = () => {
           <NavTab to="/positions">Positions</NavTab>
           <NavTab to="/trades">Trade History</NavTab>
           <NavTab to="/construction">Portfolio Construction</NavTab>
-          <NavTab to="/risk">Risk Analytics</NavTab>
         </Bar>
       )}
     </>

@@ -17,26 +17,12 @@ const PositionsSubNavbar = () => (
   </SubBar>
 );
 
-const RiskSubNavbar = () => (
-  <SubBar>
-    <NavTab to="/risk/snapshot">Portfolio Snapshot</NavTab>
-    <NavTab to="/risk/through-time">Portfolio Risk Through Time</NavTab>
-    <NavTab to="/risk/what-if">What-If Analysis</NavTab>
-  </SubBar>
-);
-
 const SubNavbar = (props) => {
   const url = useLocation().pathname;
 
   const showPositionsSubNavbar = url.includes("/positions");
-  const showRiskSubNavbar = url.includes("/risk");
 
-  return (
-    <>
-      {showPositionsSubNavbar && <PositionsSubNavbar />}
-      {showRiskSubNavbar && <RiskSubNavbar />}
-    </>
-  );
+  return <>{showPositionsSubNavbar && <PositionsSubNavbar />}</>;
 };
 
 export default SubNavbar;
