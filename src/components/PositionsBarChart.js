@@ -1,10 +1,10 @@
 import React from "react";
 import { HorizontalBar } from "react-chartjs-2";
 import PropTypes from "prop-types";
-import { formatAsCurrency, formatAsPercentage } from "../../utils/helpers";
-import LoadingSpinner from "../LoadingSpinner";
-import { COLORS, CORNER_ROUNDING } from "../../utils/constants";
 import styled from "styled-components";
+import { formatAsCurrency, formatAsPercentage } from "../utils/helpers";
+import LoadingSpinner from "./LoadingSpinner";
+import { COLORS, CORNER_ROUNDING } from "../utils/constants";
 
 const Wrapper = styled.div`
   background: ${COLORS.white};

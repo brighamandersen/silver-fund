@@ -6,7 +6,7 @@ import {
   POSITIONS_TABLE_COLS,
 } from "../../utils/constants";
 import { formatTimeSeries } from "../../utils/helpers";
-import PositionsTimeSeries from "../../components/positions/PositionsTimeSeries";
+import PositionsTimeSeries from "../../components/PositionsTimeSeries";
 import SortableTable from "../../components/SortableTable";
 import { Content } from "../../components/SharedStyles";
 import styled from "styled-components";
@@ -24,40 +24,41 @@ const MenuWrapper = styled.div`
 `;
 
 const PositionsHistory = () => {
-  const [positions, setPositions] = useState([]);
+  const [positions, setPositions] = useState(POSITIONS);
   const [start, setStart] = useState(DEFAULT_START_DATE);
   const [end, setEnd] = useState(DEFAULT_END_DATE);
-  const [selectedPositions, setSelectedPositions] = useState([]);
   const [graphVT, setGraphVT] = useState(0);
   const [showGraphics, setShowGraphics] = useState(false);
 
   const { emitErrorMsg, clearMsg } = useBanner();
 
-  useEffect(() => {
-    clearMsg();
-    setShowGraphics(true);
-    setPositions([]);
+  // useEffect(() => {
+  //   clearMsg();
+  //   setShowGraphics(true);
+  //   setPositions([]);
 
-    if (end < start) {
-      setShowGraphics(false);
-      emitErrorMsg("Start date must be before end date.");
-      return;
-    }
+  //   if (end < start) {
+  //     setShowGraphics(false);
+  //     emitErrorMsg("Start date must be before end date.");
+  //     return;
+  //   }
 
-    const filteredPositions = POSITIONS.filter(
-      (p) => p.date >= start && p.date <= end
-    );
+  //   const filteredPositions = POSITIONS.filter(
+  //     (p) => p.date >= start && p.date <= end
+  //   );
 
-    if (filteredPositions.length === 0) {
-      setShowGraphics(false);
-      emitErrorMsg(
-        "No positions exist on the date range selected.  Try a different selection."
-      );
-    }
+  //   if (filteredPositions.length === 0) {
+  //     setShowGraphics(false);
+  //     emitErrorMsg(
+  //       "No positions exist on the date range selected.  Try a different selection."
+  //     );
+  //     return;
+  //   }
+  //   console.log("fp", filteredPositions);
 
-    setPositions(filteredPositions);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [start, end]);
+  //   setPositions(filteredPositions);
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, [start, end]);
 
   const SubMenu = () => (
     <>
@@ -72,8 +73,8 @@ const PositionsHistory = () => {
         </div>
         <div>
           <TickerSelector
-            optionsData={positions}
-            onSubmit={(newValue) => setSelectedPositions(newValue)}
+            optionsData={POSITIONS}
+            onSubmit={(newValue) => setPositions(newValue)}
           />
         </div>
         <div>
@@ -90,37 +91,24 @@ const PositionsHistory = () => {
   return (
     <Content>
       <SubMenu />
-      <div className="m-2">
+      {/* <div className="m-2">
         {showGraphics && graphVT === 0 && (
           <PositionsTimeSeries
-            data={formatTimeSeries(
-              selectedPositions,
-              positions,
-              start,
-              end,
-              false
-            )}
+            data={formatTimeSeries(positions, positions, start, end, false)}
             isCurrency
           />
         )}
         {showGraphics && graphVT === 1 && (
           <PositionsTimeSeries
-            data={formatTimeSeries(
-              selectedPositions,
-              positions,
-              start,
-              end,
-              true
-            )}
-            positions={selectedPositions}
+            data={formatTimeSeries(positions, positions, start, end, true)}
             isCurrency={false}
           />
         )}
-      </div>
+      </div> */}
       <br />
       {showGraphics && (
         <SortableTable
-          tableData={selectedPositions}
+          tableData={positions}
           tableColumns={POSITIONS_TABLE_COLS}
         />
       )}

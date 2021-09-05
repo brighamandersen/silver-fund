@@ -1,179 +1,219 @@
 import "../components/construction/Construction.css";
 
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
-import { getPaperTarget, getPaperStats, getPaperBench } from "../utils/helpers";
-import ConstructionAddRow from "../components/construction/ConstructionAddRow";
-import ConstructionProcess from "../components/construction/ConstructionProcess";
 import { Content } from "../components/SharedStyles";
+import Select from "react-select";
+import { CUSTOM_SELECT_THEME } from "../utils/constants";
+import { useBanner } from "../utils/BannerContext";
+import { POSITIONS } from "../assets/positions";
+import { getStatDecimal } from "../utils/helpers";
 
-const Construction = (props) => {
-  const [errorMsg, setErrorMsg] = useState(null);
-  const [apiSecurities, setApiSecurities] = useState([]);
-  const [paperTarget, setPaperTarget] = useState(getPaperTarget());
-  const [liveBench, setLiveBench] = useState([]);
-  const [paperBench, setPaperBench] = useState({});
-  const [liveTarget, setLiveTarget] = useState([]);
-  const [paperStats, setPaperStats] = useState(getPaperStats());
-  const [liveStats, setLiveStats] = useState([]);
+const DEFAULT_POSITION = {
+  ticker: "-",
+  modelEr: "-",
+  annualizedEr: "-",
+  betaToBenchmark: "-",
+  alpha: "-",
+  optActiveWeight: "-",
+  benchmarkWeight: "-",
+  currentWeight: "-",
+  backlog: "-",
+  backlogRisk: "-",
+};
+
+const DEFAULT_EXANTE_STATS = {
+  expectedReturn: "-",
+  betaToBenchmark: "-",
+  alphaToBenchmark: "-",
+  infoRatio: "-",
+};
+
+const Construction = () => {
+  const [portfolio, setPortfolio] = useState([]);
   const [hasProcessed, setHasProcessed] = useState(false);
-  const [currentHoldingsTarget, setCurrentHoldingsTarget] = useState([]);
-  const [potentialHoldingsTarget, setPotentialHoldingsTarget] = useState([]);
+  const [exAnteStats, setExAnteStats] = useState(DEFAULT_EXANTE_STATS);
 
-  useEffect(() => {
-    localStorage.setItem("paperTarget", JSON.stringify(paperTarget));
-    var currHoldings = paperTarget.filter(function (paperTarget) {
-      return paperTarget.current_holding == 1;
-    });
+  const { emitErrorMsg, clearMsg } = useBanner();
 
-    var potHoldings = paperTarget.filter(function (paperTarget) {
-      return paperTarget.current_holding == 0;
-    });
+  const addPosition = (value) => {
+    clearMsg();
 
-    setCurrentHoldingsTarget(currHoldings);
-    setPotentialHoldingsTarget(potHoldings);
-    console.log("Current Paper Target", paperTarget);
-  }, [paperTarget]);
+    const alreadyExists = portfolio.some((p) => p.ticker === value.ticker);
 
-  useEffect(() => {
-    localStorage.setItem("paperStats", JSON.stringify(paperStats));
-  }, [paperStats]);
-
-  const resetToLive = () => {
-    setPaperTarget(liveTarget);
-    setPaperStats(liveStats);
-    setPaperBench(liveBench);
-    setHasProcessed(true);
+    if (!alreadyExists) {
+      setPortfolio([
+        ...portfolio,
+        {
+          ticker: value.ticker,
+          modelEr: "-",
+          annualizedEr: "",
+          betaToBenchmark: "-",
+          alpha: "-",
+          optActiveWeight: "-",
+          benchmarkWeight: "-",
+          currentWeight: "-",
+          backlog: "-",
+          backlogRisk: "-",
+        },
+      ]);
+      setHasProcessed(false);
+    } else {
+      emitErrorMsg(
+        "That position is already an active position.  Try selecting a different one."
+      );
+    }
   };
-
-  const getApiSecurities = () => {
-    // axios
-    //   .get("api/securities/r3000/")
-    //   .then((response) => {
-    //     console.log("Securities", response.data);
-    //     setApiSecurities(response.data);
-    //     console.log("Updated", apiSecurities);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //     setErrorMsg(
-    //       "Uh oh! Something went wrong on our end (failed to load positions data).  If this error persists, contact support."
-    //     );
-    //   });
-  };
-
-  const getApiLiveTarget = () => {
-    // axios
-    //   .get("api/live-target-portfolio/latest/")
-    //   .then((response) => {
-    //     console.log("Live Target Portfolio", response.data);
-    //     // change json key 'asset' to 'asset_id'
-    //     // response.data.forEach((el) => {
-    //     //   // el["asset_id"] = el["asset"];
-    //     //   // delete el["asset"];
-    //     //   response.data.forEach((el) => {
-    //     //     // el["asset"] = el["asset_id"];
-    //     //     // delete el["asset_id"];
-    //     //     el["current_holding"] = 1;
-    //     //   });
-    //     // });
-    //     setLiveTarget(response.data);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //     setErrorMsg(
-    //       "Uh oh! Something went wrong on our end (failed to load live target porfolio data).  If this error persists, contact support."
-    //     );
-    //   });
-  };
-
-  const getApiLiveStats = () => {
-    // axios
-    //   .get("api/portfolio-stats/latest/")
-    //   .then((response) => {
-    //     console.log("Latest Portfolio Stats", response.data);
-    //     setLiveStats(response.data);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //     setErrorMsg(
-    //       "Uh oh! Something went wrong on our end (failed to load portfolio stats data).  If this error persists, contact support."
-    //     );
-    //   });
-  };
-
-  const getApiLiveBench = () => {
-    // axios
-    //   .get("api/bench-stats/latest/")
-    //   .then((response) => {
-    //     console.log("Latest Bench Stats", response.data);
-    //     setLiveBench(response.data);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //     setErrorMsg(
-    //       "Uh oh! Something went wrong on our end (failed to load portfolio stats data).  If this error persists, contact support."
-    //     );
-    //   });
-  };
-
-  useEffect(() => {
-    getApiSecurities();
-    getApiLiveTarget();
-    getApiLiveStats();
-    getApiLiveBench();
-  }, []);
 
   const removePosition = (tickerToRemove) => {
     setHasProcessed(false);
-    const tempArrObj = paperTarget.filter((el) => el.ticker !== tickerToRemove);
-    setPaperTarget(tempArrObj);
+    const temp = portfolio.filter((p) => p.ticker !== tickerToRemove);
+    setPortfolio(temp);
   };
 
-  const onChangeAER = (ticker, value) => {
-    setErrorMsg(null);
+  const changeAnnualizedEr = (ticker, value) => {
+    emitErrorMsg(null);
     setHasProcessed(false);
 
-    let tempArrObj = [...paperTarget];
-    tempArrObj.forEach((el) => {
-      if (el.ticker === ticker) {
-        el.annualized_er = value;
+    let temp = [...portfolio];
+    temp.forEach((t) => {
+      if (t.ticker === ticker) {
+        t.annualizedEr = value;
       }
     });
-    setPaperTarget(tempArrObj);
+    setPortfolio(temp);
   };
+
+  const generateExanteStats = () => {
+    const temp = DEFAULT_EXANTE_STATS;
+    temp.expectedReturn = getStatDecimal();
+    temp.betaToBenchmark = getStatDecimal();
+    temp.alphaToBenchmark = getStatDecimal();
+    temp.infoRatio = getStatDecimal();
+    setExAnteStats(temp);
+  };
+
+  const processPortfolio = () => {
+    const badInput = portfolio.some((p) => p.annualizedEr < -1);
+    const noInput = portfolio.some((p) => p.annualizedEr === "");
+    const notEnoughInput = portfolio.length < 3;
+    let badER;
+    const highInput = portfolio.some((p) => {
+      if (p.annualizedEr > 1) {
+        badER = p.annualizedEr;
+        return true;
+      }
+      return false;
+    });
+
+    if (badInput) {
+      emitErrorMsg(
+        "Input for each position's annualized E[r] must at least be -1."
+      );
+      return;
+    }
+    if (noInput) {
+      emitErrorMsg(
+        "Please add input for each position's annualized E[r] before processing."
+      );
+      return;
+    }
+    if (notEnoughInput) {
+      emitErrorMsg(
+        "Please include at least 3 active position's before processing."
+      );
+      return;
+    }
+
+    if (highInput) {
+      alert(
+        `Warning: Decimal input greater than 1.00.\n\nDo you really expect a ${
+          (badER * 10) / 0.1
+        }% return?\n\nInput will process, but decimal expected, so if you meant a ${badER}% return, enter it as ${
+          (badER * 10) / 1000
+        } then hit 'Process' again.`
+      );
+    }
+
+    setHasProcessed(true);
+    generateExanteStats();
+  };
+
+  const RowAdder = () => (
+    <tr>
+      <td className="blank-cell btm-left-cell">
+        <Select
+          theme={CUSTOM_SELECT_THEME}
+          options={POSITIONS}
+          noOptionsMessage={() => "No matches found.  Try again."}
+          placeholder="Add New (Type to Search)"
+          value={null}
+          onChange={addPosition}
+          isSearchable
+          getOptionLabel={(option) => option.ticker}
+        />
+      </td>
+      <td className="blank-cell" />
+      <td className="blank-cell">
+        <input disabled />
+      </td>
+      <td className="blank-cell" />
+      <td className="blank-cell" />
+      <td className="blank-cell" />
+      <td className="blank-cell" />
+      <td className="blank-cell" />
+      <td className="blank-cell" />
+      <td className="blank-cell btm-right-cell" />
+    </tr>
+  );
+
+  const ExAnteStats = () => (
+    <>
+      <h4 style={{ paddingLeft: "20px" }}>Portfolio Ex-Ante Stats</h4>
+      <table style={{ width: "50%", display: "inline" }}>
+        <thead>
+          <tr>
+            <th className="top-left-cell">E[r]</th>
+            <th>Beta to Benchmark</th>
+            <th>Alpha to Benchmark</th>
+            <th className="top-right-cell">IR</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td
+              className={
+                !hasProcessed ? "btm-left-cell blank-cell" : "btm-left-cell"
+              }
+            >
+              {exAnteStats.expectedReturn}
+            </td>
+            <td className={!hasProcessed && "blank-cell"}>
+              {exAnteStats.betaToBenchmark}
+            </td>
+            <td className={!hasProcessed && "blank-cell"}>
+              {exAnteStats.alphaToBenchmark}
+            </td>
+            <td
+              className={
+                !hasProcessed ? "btm-right-cell blank-cell" : "btm-right-cell"
+              }
+            >
+              {exAnteStats.infoRatio}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </>
+  );
 
   return (
     <Content>
-      <ConstructionProcess
-        paperTarget={paperTarget}
-        setPaperTarget={(value) => setPaperTarget(value)}
-        liveTarget={liveTarget}
-        setLiveTarget={(value) => setLiveTarget(value)}
-        paperBench={paperBench}
-        setPaperBench={(value) => setPaperBench(value)}
-        liveBench={liveBench}
-        setLiveBench={(vale) => setLiveBench(vale)}
-        hasProcessed={hasProcessed}
-        setHasProcessed={(value) => setHasProcessed(value)}
-        setErrorMsg={(value) => setErrorMsg(value)}
-        username={props.username}
-        paperStats={paperStats}
-        setPaperStats={(value) => setPaperStats(value)}
-        setLiveStats={(value) => setLiveStats(value)}
-        currentHoldings={currentHoldingsTarget}
-      />
       <table className="table-with-select">
         <thead>
           <tr>
-            <th className="top-left-cell" style={{ width: "400px" }}>
-              <button
-                className="btn white-btn my-2 mx-4 float-left"
-                onClick={resetToLive}
-              >
-                Reset To Live
-              </button>
-              <span className="float-right my-3">Ticker</span>
+            <th className="top-left-cell" style={{ width: "300px" }}>
+              Ticker
             </th>
             <th>Model E[r]</th>
             <th>Annualized E[r]</th>
@@ -188,153 +228,54 @@ const Construction = (props) => {
           </tr>
         </thead>
         <tbody>
-          {/* Benchmark */}
-          <tr>
-            <td className="table-subtitle-container clear-cell">
-              <h5 className="table-subtitle">Benchmark</h5>
-            </td>
-          </tr>
-          <tr>
-            <td>{paperBench.ticker}</td>
-            <td>{paperBench.model_er}</td>
-            <td>{paperBench.annualized_er}</td>
-            <td>{paperBench.beta_to_b}</td>
-            <td>{paperBench.alpha}</td>
-            <td>{paperBench.oa_weight}</td>
-            <td className="blank-cell">N/A</td>
-            <td>{paperBench.c_weight}</td>
-            <td className="blank-cell">N/A</td>
-            <td className="blank-cell">N/A</td>
-          </tr>
+          <RowAdder />
+          {portfolio.map((p) => (
+            <tr key={p.ticker}>
+              <td>{p.ticker}</td>
+              <td className={!hasProcessed & "blank-cell"}>{p.modelEr}</td>
 
-          <tr>
-            <td className="table-subtitle-container clear-cell">
-              <h5 className="table-subtitle">Potential Positions</h5>
-            </td>
-          </tr>
-
-          <ConstructionAddRow
-            apiSecurities={apiSecurities}
-            setErrorMsg={(value) => setErrorMsg(value)}
-            paperTarget={paperTarget}
-            setPaperTarget={(value) => setPaperTarget(value)}
-            setHasProcessed={(value) => setHasProcessed(value)}
-          />
-
-          {potentialHoldingsTarget.map((el) => (
-            <tr key={el.ticker}>
-              <td>{el.ticker}</td>
-              <td className={!hasProcessed ? "blank-cell" : undefined}>
-                {el.model_er}
-              </td>
-
-              <td className={!hasProcessed ? "blank-cell" : undefined}>
+              <td className={!hasProcessed & "blank-cell"}>
                 <input
                   style={{ width: "100%" }}
                   className={
-                    !hasProcessed
-                      ? (el.annualized_er === "" ? "bolded-cell" : undefined) ||
-                        (el.annualized_er < -1 ? "error-cell" : undefined) ||
-                        (el.annualized_er > 1 ? "warning-cell" : undefined)
-                      : undefined
+                    !hasProcessed & ((p.annualizedEr === "") & "bolded-cell") ||
+                    (p.annualizedEr < -1) & "error-cell" ||
+                    (p.annualizedEr > 1) & "warning-cell"
                   }
                   type="number"
                   step="0.01"
                   min="-1"
                   max="1"
                   placeholder="Enter Decimal"
-                  value={el.annualized_er}
-                  onChange={(e) => onChangeAER(el.ticker, e.target.value)}
+                  value={p.annualizedEr}
+                  onChange={(e) => changeAnnualizedEr(p.ticker, e.target.value)}
                 />
               </td>
               <td className={!hasProcessed ? "blank-cell" : undefined}>
-                {el.beta_to_b}
+                {p.betaToBenchmark}
               </td>
               <td className={!hasProcessed ? "blank-cell" : undefined}>
-                {el.alpha}
+                {p.alpha}
               </td>
               <td className={!hasProcessed ? "blank-cell" : undefined}>
-                {el.oa_weight}
+                {p.optActiveWeight}
               </td>
               <td className={!hasProcessed ? "blank-cell" : undefined}>
-                {el.b_weight}
+                {p.benchmarkWeight}
               </td>
               <td className={!hasProcessed ? "blank-cell" : undefined}>
-                {el.c_weight}
+                {p.currentWeight}
               </td>
               <td className={!hasProcessed ? "blank-cell" : undefined}>
-                {el.backlog}
+                {p.backlog}
               </td>
               <td className={!hasProcessed ? "blank-cell" : undefined}>
-                {el.backlog_risk}
+                {p.backlogRisk}
               </td>
               <td className="clear-cell">
                 <button
                   className="btn delete-table-row-btn"
-                  onClick={() => removePosition(el.ticker)}
-                >
-                  🞬
-                </button>
-              </td>
-            </tr>
-          ))}
-
-          <tr>
-            <td className="table-subtitle-container clear-cell">
-              <h5 className="table-subtitle">Active Positions</h5>
-            </td>
-          </tr>
-          {currentHoldingsTarget.map((el) => (
-            <tr key={el.ticker}>
-              <td>{el.ticker}</td>
-              <td className={!hasProcessed ? "blank-cell" : undefined}>
-                {el.model_er}
-              </td>
-
-              <td className={!hasProcessed ? "blank-cell" : undefined}>
-                <input
-                  style={{ width: "100%" }}
-                  className={
-                    !hasProcessed
-                      ? (el.annualized_er === "" ? "bolded-cell" : undefined) ||
-                        (el.annualized_er < -1 ? "error-cell" : undefined) ||
-                        (el.annualized_er > 1 ? "warning-cell" : undefined)
-                      : undefined
-                  }
-                  type="number"
-                  step="0.01"
-                  min="-1"
-                  max="1"
-                  placeholder="Enter Decimal"
-                  value={el.annualized_er}
-                  onChange={(e) => onChangeAER(el.ticker, e.target.value)}
-                />
-              </td>
-              <td className={!hasProcessed ? "blank-cell" : undefined}>
-                {el.beta_to_b}
-              </td>
-              <td className={!hasProcessed ? "blank-cell" : undefined}>
-                {el.alpha}
-              </td>
-              <td className={!hasProcessed ? "blank-cell" : undefined}>
-                {el.oa_weight}
-              </td>
-              <td className={!hasProcessed ? "blank-cell" : undefined}>
-                {el.b_weight}
-              </td>
-              <td className={!hasProcessed ? "blank-cell" : undefined}>
-                {el.c_weight}
-              </td>
-              <td className={!hasProcessed ? "blank-cell" : undefined}>
-                {el.backlog}
-              </td>
-              <td className={!hasProcessed ? "blank-cell" : undefined}>
-                {el.backlog_risk}
-              </td>
-              <td className="clear-cell">
-                <button
-                  className="btn delete-table-row-btn"
-                  onClick={() => removePosition(el.ticker)}
+                  onClick={() => removePosition(p.ticker)}
                 >
                   🞬
                 </button>
@@ -344,6 +285,14 @@ const Construction = (props) => {
         </tbody>
       </table>
       <br />
+      {portfolio.length > 0 && (
+        <button className="btn m-4" onClick={processPortfolio}>
+          Process
+        </button>
+      )}
+      <hr />
+      <br />
+      <ExAnteStats />
     </Content>
   );
 };

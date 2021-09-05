@@ -14,10 +14,8 @@ import { useBanner } from "../utils/BannerContext";
 
 const Trades = () => {
   const [trades, setTrades] = useState(TRADES);
-  const [errorMsg, setErrorMsg] = useState(null);
   const [start, setStart] = useState(DEFAULT_START_DATE);
   const [end, setEnd] = useState(DEFAULT_END_DATE);
-  const [selectedTrades, setSelectedTrades] = useState([]);
   const [showTable, setShowTable] = useState(false);
 
   const { emitErrorMsg, clearMsg } = useBanner();
@@ -33,31 +31,20 @@ const Trades = () => {
       return;
     }
 
-    // axios
-    //   .get("api/trades/filter/date/", {
-    //     params: {
-    //       start: start + "@00:00:00",
-    //       end: end + "@23:59:59",
-    //     },
-    //   })
-    //   .then((response) => {
-    //     console.log("Trades from " + start + " to " + end, response.data);
-    //     if (response.data.length === 0) {
-    //       setShowTable(false);
-    //       setErrorMsg(
-    //         "No trades exist on the date(s) selected.  Try a different selection."
-    //       );
-    //     }
-    //     setTrades(response.data);
-    //     setSelectedTrades(response.data);
-    //   })
-    //   .catch((error) => {
-    //     console.log(error);
-    //     setShowTable(false);
-    //     setErrorMsg(
-    //       "Uh oh! Something went wrong on our end (failed to load trades data).  If this error persists, contact support."
-    //     );
-    //   });
+    const filteredTrades = TRADES.filter(
+      (t) => t.tradeTime >= start && t.tradeTime <= end + 1
+    );
+
+    if (filteredTrades.length === 0) {
+      setShowTable(false);
+      emitErrorMsg(
+        "No trades exist on the date(s) selected.  Try a different selection."
+      );
+      return;
+    }
+
+    setTrades(filteredTrades);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [start, end]);
 
   return (
@@ -72,16 +59,16 @@ const Trades = () => {
       </div>
       <div className="d-inline-block ml-4">
         <TickerSelector
-          optionsData={trades}
-          onSubmit={(newValue) => setSelectedTrades(newValue)}
+          optionsData={TRADES}
+          onSubmit={(newValue) => setTrades(newValue)}
         />
       </div>
       <hr />
       {showTable && (
         <SortableTable
-          tableData={selectedTrades}
+          tableData={trades}
           tableColumns={TRADES_TABLE_COLS}
-          initialSort="time"
+          initialSort="tradeTime"
         />
       )}
     </Content>

@@ -6,9 +6,9 @@ import {
   formatAsPercentage,
   getPrimColor,
   getSecondColor,
-} from "../../utils/helpers";
-import LoadingSpinner from "../LoadingSpinner";
-import { COLORS } from "../../utils/constants";
+} from "../utils/helpers";
+import LoadingSpinner from "./LoadingSpinner";
+import { COLORS } from "../utils/constants";
 
 const PositionsTimeSeries = (props) => (
   <div

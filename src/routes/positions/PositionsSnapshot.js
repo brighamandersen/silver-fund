@@ -6,7 +6,7 @@ import {
 } from "../../utils/constants";
 import { convertToPercentage } from "../../utils/helpers";
 import SortableTable from "../../components/SortableTable";
-import PositionsBarChart from "../../components/positions/PositionsBarChart";
+import PositionsBarChart from "../../components/PositionsBarChart";
 import {
   Content,
   SnapshotTwoColWrapper,

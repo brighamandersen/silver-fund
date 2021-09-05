@@ -1,25 +1,5 @@
-export const getPaperTarget = () => {
-  let tempArrObj = JSON.parse(localStorage.getItem("paperTarget"));
-  if (tempArrObj == null) {
-    tempArrObj = [];
-  }
-  return tempArrObj;
-};
-
-export const getPaperBench = () => {
-  let tempArrObj = JSON.parse(localStorage.getItem("paperBench"));
-  if (tempArrObj == null) {
-    tempArrObj = [];
-  }
-  return tempArrObj;
-};
-
-export const getPaperStats = () => {
-  let tempArrObj = JSON.parse(localStorage.getItem("paperStats"));
-  if (tempArrObj == null) {
-    tempArrObj = [];
-  }
-  return tempArrObj;
+export const getStatDecimal = () => {
+  return Math.random().toFixed(3);
 };
 
 export const formatAsCurrency = (value) => {
