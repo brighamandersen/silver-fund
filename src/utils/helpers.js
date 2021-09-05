@@ -22,9 +22,6 @@ export const getPaperStats = () => {
   return tempArrObj;
 };
 
-export const formatAsAmount = (value) =>
-  value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
-
 export const formatAsCurrency = (value) => {
   let prefix = "";
   if (value === 0) {

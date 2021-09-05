@@ -9,25 +9,27 @@ import DateRanger from "../components/DateRanger";
 import TickerSelector from "../components/TickerSelector";
 import SortableTable from "../components/SortableTable";
 import { Content } from "../components/SharedStyles";
+import { TRADES } from "../assets/trades";
+import { useBanner } from "../utils/BannerContext";
 
 const Trades = () => {
-  const [trades, setTrades] = useState();
+  const [trades, setTrades] = useState(TRADES);
   const [errorMsg, setErrorMsg] = useState(null);
   const [start, setStart] = useState(DEFAULT_START_DATE);
   const [end, setEnd] = useState(DEFAULT_END_DATE);
-  const [apiTrades, setApiTrades] = useState([]);
   const [selectedTrades, setSelectedTrades] = useState([]);
   const [showTable, setShowTable] = useState(false);
 
-  /* Get api data for trades in a date range */
+  const { emitErrorMsg, clearMsg } = useBanner();
+
   useEffect(() => {
     setShowTable(true);
-    setApiTrades([]);
-    setErrorMsg(null);
+    setTrades([]);
+    clearMsg();
 
     if (end < start) {
       setShowTable(false);
-      setErrorMsg("Warning: Start date isn't before end date.");
+      emitErrorMsg("Warning: Start date isn't before end date.");
       return;
     }
 
@@ -46,7 +48,7 @@ const Trades = () => {
     //         "No trades exist on the date(s) selected.  Try a different selection."
     //       );
     //     }
-    //     setApiTrades(response.data);
+    //     setTrades(response.data);
     //     setSelectedTrades(response.data);
     //   })
     //   .catch((error) => {
@@ -56,7 +58,7 @@ const Trades = () => {
     //       "Uh oh! Something went wrong on our end (failed to load trades data).  If this error persists, contact support."
     //     );
     //   });
-  }, [start, end]); // Calls the API to fetch data at first, and whenever start or end date change.
+  }, [start, end]);
 
   return (
     <Content>
@@ -68,9 +70,9 @@ const Trades = () => {
           setEnd={setEnd}
         />
       </div>
-      <div className="ticker-selector d-inline-block ml-4">
+      <div className="d-inline-block ml-4">
         <TickerSelector
-          optionsData={apiTrades}
+          optionsData={trades}
           onSubmit={(newValue) => setSelectedTrades(newValue)}
         />
       </div>

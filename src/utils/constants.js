@@ -1,5 +1,5 @@
 import React from "react";
-import { formatAsAmount, formatAsCurrency } from "./helpers";
+import { formatAsCurrency } from "./helpers";
 
 /* Website Color Scheme */
 export const COLORS = {
@@ -51,7 +51,6 @@ export const POSITIONS_TABLE_COLS = [
   {
     Header: "# of Shares",
     accessor: "numShares",
-    Cell: (props) => <div> {formatAsAmount(props.value)}</div>,
     sortType: "basic",
   },
   {
@@ -96,7 +95,6 @@ export const TRADES_TABLE_COLS = [
   {
     Header: "# of Shares",
     accessor: "numShares",
-    Cell: (props) => <div> {formatAsAmount(props.value)}</div>,
     sortType: "basic",
   },
   {
@@ -107,7 +105,7 @@ export const TRADES_TABLE_COLS = [
   },
   {
     Header: "Total Price",
-    accessor: "total_price",
+    accessor: "totalPrice",
     Cell: (props) => <div> {formatAsCurrency(props.value)}</div>,
     sortType: "basic",
   },
@@ -117,7 +115,7 @@ export const TRADES_TABLE_COLS = [
   },
   {
     Header: "Trade Time",
-    accessor: "time",
+    accessor: "tradeTime",
   },
 ];
 

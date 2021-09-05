@@ -16,14 +16,14 @@ const SortArrow = styled.span`
   float: right;
 `;
 
-const SortableTable = (props) => {
+const SortableTable = ({ tableColumns, tableData, initialSort }) => {
   const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
     useTable(
       {
-        columns: props.tableColumns,
-        data: props.tableData,
+        columns: tableColumns,
+        data: tableData,
         initialState: {
-          sortBy: [{ id: props.initialSort, desc: true }],
+          sortBy: [{ id: initialSort, desc: true }],
         },
       },
       useSortBy
@@ -31,7 +31,7 @@ const SortableTable = (props) => {
 
   return (
     <div>
-      {props.tableData && props.tableData.length > 0 ? (
+      {tableData && tableData.length > 0 ? (
         <table {...getTableProps()}>
           <thead>
             {headerGroups.map((headerGroup) => (
@@ -54,7 +54,7 @@ const SortableTable = (props) => {
             ))}
           </thead>
           <tbody {...getTableBodyProps()}>
-            {rows.map((row, i) => {
+            {rows.map((row) => {
               prepareRow(row);
               return (
                 <tr {...row.getRowProps()}>
@@ -77,7 +77,7 @@ const SortableTable = (props) => {
 
 SortableTable.propTypes = {
   tableData: PropTypes.array.isRequired,
-  tableColumns: PropTypes.arrayOf(PropTypes.shape(PropTypes.string)).isRequired,
+  tableColumns: PropTypes.array.isRequired,
   initialSort: PropTypes.string,
 };
 
