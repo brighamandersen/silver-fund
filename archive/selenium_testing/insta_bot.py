@@ -1,5 +1,4 @@
 from selenium import webdriver
-from secrets import INSTA_USERNAME, INSTA_PASSWORD
 from time import sleep
 
 
