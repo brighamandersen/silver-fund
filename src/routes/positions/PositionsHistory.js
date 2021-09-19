@@ -32,33 +32,32 @@ const PositionsHistory = () => {
 
   const { emitErrorMsg, clearMsg } = useBanner();
 
-  // useEffect(() => {
-  //   clearMsg();
-  //   setShowGraphics(true);
-  //   setPositions([]);
+  useEffect(() => {
+    clearMsg();
+    setShowGraphics(true);
+    setPositions([]);
 
-  //   if (end < start) {
-  //     setShowGraphics(false);
-  //     emitErrorMsg("Start date must be before end date.");
-  //     return;
-  //   }
+    if (end < start) {
+      setShowGraphics(false);
+      emitErrorMsg("Start date must be before end date.");
+      return;
+    }
 
-  //   const filteredPositions = POSITIONS.filter(
-  //     (p) => p.date >= start && p.date <= end
-  //   );
+    const filteredPositions = POSITIONS.filter(
+      (p) => p.date >= start && p.date <= end
+    );
 
-  //   if (filteredPositions.length === 0) {
-  //     setShowGraphics(false);
-  //     emitErrorMsg(
-  //       "No positions exist on the date range selected.  Try a different selection."
-  //     );
-  //     return;
-  //   }
-  //   console.log("fp", filteredPositions);
+    if (filteredPositions.length === 0) {
+      setShowGraphics(false);
+      emitErrorMsg(
+        "No positions exist on the date range selected.  Try a different selection."
+      );
+      return;
+    }
 
-  //   setPositions(filteredPositions);
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, [start, end]);
+    setPositions(filteredPositions);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [start, end]);
 
   const SubMenu = () => (
     <>
@@ -69,12 +68,6 @@ const PositionsHistory = () => {
             end={end}
             setStart={setStart}
             setEnd={setEnd}
-          />
-        </div>
-        <div>
-          <TickerSelector
-            optionsData={POSITIONS}
-            onSubmit={(newValue) => setPositions(newValue)}
           />
         </div>
         <div>
@@ -91,7 +84,7 @@ const PositionsHistory = () => {
   return (
     <Content>
       <SubMenu />
-      {/* <div className="m-2">
+      <div className="m-2">
         {showGraphics && graphVT === 0 && (
           <PositionsTimeSeries
             data={formatTimeSeries(positions, positions, start, end, false)}
@@ -104,7 +97,7 @@ const PositionsHistory = () => {
             isCurrency={false}
           />
         )}
-      </div> */}
+      </div>
       <br />
       {showGraphics && (
         <SortableTable

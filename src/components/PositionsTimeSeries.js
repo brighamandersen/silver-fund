@@ -8,14 +8,14 @@ import {
   getSecondColor,
 } from "../utils/helpers";
 import LoadingSpinner from "./LoadingSpinner";
-import { COLORS } from "../utils/constants";
+import { COLORS, CORNER_ROUNDING } from "../utils/constants";
 
 const PositionsTimeSeries = (props) => (
   <div
     style={{
-      backgroundColor: "#ffffff",
+      backgroundColor: COLORS.white,
       padding: "40px",
-      borderRadius: "15px",
+      borderRadius: CORNER_ROUNDING,
     }}
   >
     {props.data &&
@@ -43,36 +43,7 @@ const PositionsTimeSeries = (props) => (
           },
           legend: {
             display: true,
-            onClick: (e, legendItem) => {
-              var index = legendItem.datasetIndex;
-              var ci = this.chart;
-
-              ci.data.datasets.forEach((e, i) => {
-                var meta = ci.getDatasetMeta(i);
-
-                if (i !== index) {
-                  if (ci.data.datasets[i].backgroundColor !== "#6666") {
-                    ci.data.datasets[i].backgroundColor = "#6666";
-                    ci.data.datasets[i].borderColor = "#6666";
-                    // meta.hidden = meta.hidden === null ? !meta.hidden : null;
-                  } else {
-                    ci.data.datasets[i].backgroundColor = getSecondColor(
-                      ci.data.datasets.length,
-                      i
-                    );
-                    ci.data.datasets[i].borderColor = getPrimColor(
-                      ci.data.datasets.length,
-                      i
-                    );
-                    // meta.hidden = true;
-                  }
-                } else if (i === index) {
-                  meta.hidden = null;
-                }
-              });
-
-              ci.update();
-            },
+            onClick: (e) => e.stopPropagation()
           },
           tooltips: {
             multiKeyBackground: COLORS.black,
