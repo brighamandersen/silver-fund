@@ -4,8 +4,6 @@ import { Line } from "react-chartjs-2";
 import {
   formatAsCurrency,
   formatAsPercentage,
-  getPrimColor,
-  getSecondColor,
 } from "../utils/helpers";
 import LoadingSpinner from "./LoadingSpinner";
 import { COLORS, CORNER_ROUNDING } from "../utils/constants";

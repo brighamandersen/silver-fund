@@ -11,7 +11,6 @@ import SortableTable from "../../components/SortableTable";
 import { Content } from "../../components/SharedStyles";
 import styled from "styled-components";
 import DateRanger from "../../components/DateRanger";
-import TickerSelector from "../../components/TickerSelector";
 import GraphViewType from "../../components/GraphViewType";
 import { useBanner } from "../../utils/BannerContext";
 import { POSITIONS } from "../../assets/positions";
