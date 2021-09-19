@@ -43,20 +43,8 @@ const Construction = () => {
 
     if (!alreadyExists) {
       setPortfolio([
-        ...portfolio,
-        {
-          ticker: value.ticker,
-          modelEr: "-",
-          annualizedEr: "",
-          betaToBenchmark: "-",
-          alpha: "-",
-          optActiveWeight: "-",
-          benchmarkWeight: "-",
-          currentWeight: "-",
-          backlog: "-",
-          backlogRisk: "-",
-        },
-      ]);
+        ...portfolio, {...DEFAULT_POSITION, ticker: value.ticker}],
+      );
       setHasProcessed(false);
     } else {
       emitErrorMsg(
@@ -84,13 +72,29 @@ const Construction = () => {
     setPortfolio(temp);
   };
 
+  const generateTickerStats = () => {
+    let temp = [...portfolio];
+    temp.forEach((t) => {
+      t.modelEr = getStatDecimal();
+      t.betaToBenchmark = getStatDecimal();
+      t.alpha = getStatDecimal();
+      t.optActiveWeight = getStatDecimal();
+      t.benchmarkWeight = getStatDecimal();
+      t.currentWeight = getStatDecimal();
+      t.backlog = getStatDecimal();
+      t.backlogRisk = getStatDecimal();
+    });
+    setPortfolio(temp);
+  }
+
   const generateExanteStats = () => {
-    const temp = DEFAULT_EXANTE_STATS;
-    temp.expectedReturn = getStatDecimal();
-    temp.betaToBenchmark = getStatDecimal();
-    temp.alphaToBenchmark = getStatDecimal();
-    temp.infoRatio = getStatDecimal();
-    setExAnteStats(temp);
+    setExAnteStats({
+      ...DEFAULT_EXANTE_STATS, 
+      expectedReturn: getStatDecimal(),
+      betaToBenchmark: getStatDecimal(),
+      alphaToBenchmark: getStatDecimal(),
+      infoRatio: getStatDecimal(),
+    });
   };
 
   const processPortfolio = () => {
@@ -136,6 +140,7 @@ const Construction = () => {
     }
 
     setHasProcessed(true);
+    generateTickerStats();
     generateExanteStats();
   };
 
@@ -251,25 +256,25 @@ const Construction = () => {
                   onChange={(e) => changeAnnualizedEr(p.ticker, e.target.value)}
                 />
               </td>
-              <td className={!hasProcessed ? "blank-cell" : undefined}>
+              <td className={!hasProcessed && "blank-cell"}>
                 {p.betaToBenchmark}
               </td>
-              <td className={!hasProcessed ? "blank-cell" : undefined}>
+              <td className={!hasProcessed && "blank-cell"}>
                 {p.alpha}
               </td>
-              <td className={!hasProcessed ? "blank-cell" : undefined}>
+              <td className={!hasProcessed && "blank-cell"}>
                 {p.optActiveWeight}
               </td>
-              <td className={!hasProcessed ? "blank-cell" : undefined}>
+              <td className={!hasProcessed && "blank-cell"}>
                 {p.benchmarkWeight}
               </td>
-              <td className={!hasProcessed ? "blank-cell" : undefined}>
+              <td className={!hasProcessed && "blank-cell"}>
                 {p.currentWeight}
               </td>
-              <td className={!hasProcessed ? "blank-cell" : undefined}>
+              <td className={!hasProcessed && "blank-cell"}>
                 {p.backlog}
               </td>
-              <td className={!hasProcessed ? "blank-cell" : undefined}>
+              <td className={!hasProcessed && "blank-cell"}>
                 {p.backlogRisk}
               </td>
               <td className="clear-cell">
