@@ -31,3 +31,10 @@ _Keep in mind that while at one point the app was fully integrated with a backen
 ![Visitors Page Screenshot 3](./archive/misc/portfolio-shots/silver-fund-visitor3.webp)
 
 ![Visitors Page Screenshot 4](./archive/misc/portfolio-shots/silver-fund-visitor4.webp)
+
+### Deploying to Production
+
+```bash
+cd path/to/repo
+./deploy/deploy.sh
+```
