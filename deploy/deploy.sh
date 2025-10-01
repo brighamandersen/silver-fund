@@ -10,7 +10,7 @@ npm run build
 
 # nginx
 
-sudo ln -sf /home/brig/code/silver-fund/deploy/nginx.conf /etc/nginx/conf.d/silverfund.conf
+sudo cp /home/brig/code/silver-fund/deploy/nginx.conf /etc/nginx/conf.d/silverfund.conf
 
 sudo nginx -t
 sudo systemctl reload nginx
